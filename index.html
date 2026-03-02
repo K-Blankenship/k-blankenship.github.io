@@ -1,64 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Kendra Blankenship - IT Professional</title>
+
     <style>
+        /* ---------- GLOBAL THEME VARIABLES ---------- */
+        :root {
+            --bg: #000;
+            --text: #00ffcc;
+            --box-bg: rgba(0, 0, 0, 0.7);
+            --box-border: #00ffcc;
+        }
+
+        body.light-mode {
+            --bg: #f5f5f5;
+            --text: #003333;
+            --box-bg: rgba(255, 255, 255, 0.8);
+            --box-border: #006666;
+        }
+
+        /* ---------- PAGE BASE ---------- */
         body {
+            margin: 0;
             font-family: Arial;
-            background: linear-gradient(135deg, #0a0a0a, #001f1f, #003333);
-            background-size: 400% 400%;
-            animation: gradientShift 12s ease infinite, fadeIn 1.5s ease-in-out;
-            color: #00ffcc;
+            background-color: var(--bg);
+            color: var(--text);
             text-align: center;
             padding: 50px;
+            overflow-x: hidden;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        h1 {
+        /* ---------- CYBER DUST BACKGROUND ---------- */
+        .dust {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-10vh); }
+        }
+
+        /* ---------- TERMINAL TYPING ANIMATION ---------- */
+        .typing {
             font-size: 48px;
-            text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
-            animation: pulseGlow 3s infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid var(--text);
+            width: 0;
+            margin: 0 auto;
+            animation: typing 3s steps(30, end) forwards, blink 0.7s infinite;
         }
 
-        h2 {
-            text-shadow: 0 0 10px #00ffcc;
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 550px; }
         }
 
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* ---------- CONTENT BOXES ---------- */
         .box {
-            background: rgba(0, 0, 0, 0.7);
+            background: var(--box-bg);
             padding: 20px;
             margin: 20px auto;
             width: 60%;
             border-radius: 12px;
-            border: 2px solid #00ffcc;
-            box-shadow: 0 0 15px #00ffcc;
+            border: 2px solid var(--box-border);
+            box-shadow: 0 0 15px var(--text);
             transition: 0.4s ease;
         }
 
         .box:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc;
+            box-shadow: 0 0 30px var(--text), 0 0 60px var(--text);
         }
 
-        @keyframes pulseGlow {
-            from { text-shadow: 0 0 10px #00ffcc; }
-            to { text-shadow: 0 0 30px #00ffcc; }
+        /* ---------- DARK MODE TOGGLE BUTTON ---------- */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--box-bg);
+            color: var(--text);
+            border: 2px solid var(--box-border);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .toggle-btn:hover {
+            box-shadow: 0 0 15px var(--text);
         }
 
+        /* ---------- FADE IN ---------- */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
     </style>
 </head>
+
 <body>
 
-    <h1>Kendra Blankenship</h1>
+    <!-- DARK MODE BUTTON -->
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
+
+    <!-- CYBER DUST -->
+    <div class="dust" id="dust"></div>
+
+    <!-- TYPING NAME -->
+    <h1 class="typing">Kendra Blankenship</h1>
     <h2>Network Support & Future Cybersecurity Professional</h2>
 
     <div class="box">
@@ -86,6 +159,24 @@
         <p>Email: kendrablankenship2@gmail.com</p>
     </div>
 
+    <script>
+        /* ---------- DARK MODE TOGGLE ---------- */
+        function toggleMode() {
+            document.body.classList.toggle("light-mode");
+        }
+
+        /* ---------- CYBER DUST GENERATOR ---------- */
+        const dustContainer = document.getElementById("dust");
+
+        for (let i = 0; i < 60; i++) {
+            let p = document.createElement("div");
+            p.classList.add("particle");
+            p.style.left = Math.random() * 100 + "vw";
+            p.style.animationDuration = 5 + Math.random() * 10 + "s";
+            p.style.opacity = Math.random();
+            dustContainer.appendChild(p);
+        }
+    </script>
+
 </body>
 </html>
-
