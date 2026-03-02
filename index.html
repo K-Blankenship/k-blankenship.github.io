@@ -5,7 +5,6 @@
     <title>Kendra Blankenship - IT Professional</title>
 
     <style>
-        /* ---------- GLOBAL THEME VARIABLES ---------- */
         :root {
             --bg: #000;
             --text: #00ffcc;
@@ -20,7 +19,6 @@
             --box-border: #006666;
         }
 
-        /* ---------- PAGE BASE ---------- */
         body {
             margin: 0;
             font-family: Arial;
@@ -32,8 +30,28 @@
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* ---------- CYBER DUST BACKGROUND ---------- */
-        .dust {
+        /* HARD NEON BORDER FRAME */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--text);
+            box-shadow: 0 0 25px var(--text), inset 0 0 25px var(--text);
+            pointer-events: none;
+            z-index: 999;
+            animation: framePulse 3s infinite alternate;
+        }
+
+        @keyframes framePulse {
+            from { box-shadow: 0 0 15px var(--text), inset 0 0 15px var(--text); }
+            to { box-shadow: 0 0 35px var(--text), inset 0 0 35px var(--text); }
+        }
+
+        /* CYBER DUST */
+        .dust, .rockets, .shooting-stars {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -59,7 +77,38 @@
             to { transform: translateY(-10vh); }
         }
 
-        /* ---------- TERMINAL TYPING ANIMATION ---------- */
+        /* ROCKET SHIPS */
+        .rocket {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            fill: var(--text);
+            opacity: 0.8;
+            animation: rocketUp linear infinite;
+        }
+
+        @keyframes rocketUp {
+            from { transform: translateY(110vh); }
+            to { transform: translateY(-20vh); }
+        }
+
+        /* SHOOTING STARS */
+        .shooting-star {
+            position: absolute;
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--text), transparent);
+            opacity: 0.8;
+            transform: rotate(45deg);
+            animation: shoot linear infinite;
+        }
+
+        @keyframes shoot {
+            from { transform: translate(-20vw, -20vh) rotate(var(--angle)); }
+            to { transform: translate(120vw, 120vh) rotate(var(--angle)); }
+        }
+
+        /* TERMINAL TYPING */
         .typing {
             font-size: 48px;
             white-space: nowrap;
@@ -79,7 +128,7 @@
             50% { border-color: transparent; }
         }
 
-        /* ---------- CONTENT BOXES ---------- */
+        /* CONTENT BOXES */
         .box {
             background: var(--box-bg);
             padding: 20px;
@@ -96,7 +145,7 @@
             box-shadow: 0 0 30px var(--text), 0 0 60px var(--text);
         }
 
-        /* ---------- DARK MODE TOGGLE BUTTON ---------- */
+        /* DARK MODE BUTTON */
         .toggle-btn {
             position: fixed;
             top: 20px;
@@ -108,13 +157,13 @@
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
+            z-index: 1000;
         }
 
         .toggle-btn:hover {
             box-shadow: 0 0 15px var(--text);
         }
 
-        /* ---------- FADE IN ---------- */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -124,13 +173,12 @@
 
 <body>
 
-    <!-- DARK MODE BUTTON -->
     <button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
 
-    <!-- CYBER DUST -->
     <div class="dust" id="dust"></div>
+    <div class="rockets" id="rockets"></div>
+    <div class="shooting-stars" id="shootingStars"></div>
 
-    <!-- TYPING NAME -->
     <h1 class="typing">Kendra Blankenship</h1>
     <h2>Network Support & Future Cybersecurity Professional</h2>
 
@@ -160,14 +208,12 @@
     </div>
 
     <script>
-        /* ---------- DARK MODE TOGGLE ---------- */
         function toggleMode() {
             document.body.classList.toggle("light-mode");
         }
 
-        /* ---------- CYBER DUST GENERATOR ---------- */
+        /* CYBER DUST */
         const dustContainer = document.getElementById("dust");
-
         for (let i = 0; i < 60; i++) {
             let p = document.createElement("div");
             p.classList.add("particle");
@@ -176,6 +222,47 @@
             p.style.opacity = Math.random();
             dustContainer.appendChild(p);
         }
+
+        /* ROCKET SHIPS */
+        const rocketContainer = document.getElementById("rockets");
+        const rocketSVG = `
+            <svg viewBox="0 0 64 128">
+                <polygon points="32,0 48,40 32,35 16,40" />
+                <rect x="26" y="40" width="12" height="60" />
+                <polygon points="32,100 40,128 24,128" />
+            </svg>
+        `;
+
+        for (let i = 0; i < 8; i++) {
+            let r = document.createElement("div");
+            r.classList.add("rocket");
+            r.innerHTML = rocketSVG;
+            r.style.left = Math.random() * 100 + "vw";
+            r.style.animationDuration = 8 + Math.random() * 12 + "s";
+            rocketContainer.appendChild(r);
+        }
+
+        /* SHOOTING STARS */
+        const starContainer = document.getElementById("shootingStars");
+
+        function createShootingStar() {
+            let star = document.createElement("div");
+            star.classList.add("shooting-star");
+
+            star.style.top = Math.random() * 100 + "vh";
+            star.style.left = Math.random() * 100 + "vw";
+
+            let angle = Math.random() * 360 + "deg";
+            star.style.setProperty("--angle", angle);
+
+            star.style.animationDuration = 1 + Math.random() * 2 + "s";
+
+            starContainer.appendChild(star);
+
+            setTimeout(() => star.remove(), 3000);
+        }
+
+        setInterval(createShootingStar, 1200);
     </script>
 
 </body>
