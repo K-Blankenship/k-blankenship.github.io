@@ -20,7 +20,39 @@
       --transition-fast: 0.18s ease-out;
       --grid-line: rgba(255, 255, 255, 0.04);
     }
+    /* Background canvas for particles */
+#particleCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
 
+/* Scanning beam */
+.scan-beam {
+  position: fixed;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(39, 243, 255, 0) 0%,
+    rgba(39, 243, 255, 0.15) 50%,
+    rgba(255, 59, 191, 0) 100%
+  );
+  transform: rotate(-8deg);
+  animation: scan 12s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { top: -60%; }
+  100% { top: 120%; }
+}
     * {
       box-sizing: border-box;
       margin: 0;
@@ -723,5 +755,61 @@
       <span>&lt;/&gt;</span> Crafted by Kendra Blankenship &mdash; IT &amp; Networking Professional
     </footer>
   </div>
+  <!-- Animated Background Effects -->
+<canvas id="particleCanvas"></canvas>
+<div class="scan-beam"></div>
+  <script>
+const canvas = document.getElementById("particleCanvas");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+let w, h;
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+function createParticles(count) {
+  particles = [];
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      size: Math.random() * 2 + 1,
+      speedX: (Math.random() - 0.5) * 0.3,
+      speedY: (Math.random() - 0.5) * 0.3,
+      color: Math.random() > 0.5 ? "rgba(39,243,255,0.8)" : "rgba(255,59,191,0.8)"
+    });
+  }
+}
+
+createParticles(120);
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+
+  particles.forEach(p => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+
+    if (p.x < 0) p.x = w;
+    if (p.x > w) p.x = 0;
+    if (p.y < 0) p.y = h;
+    if (p.y > h) p.y = 0;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 </body>
 </html>
