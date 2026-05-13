@@ -1,876 +1,566 @@
+/index.html              → Front Page (portrait + tabs + résumé hex tile)
+/about.html              → About Me HUD panel
+/projects.html           → Hex‑panel project icons
+/skills.html             → Segmented HUD skills list
+/certifications.html     → HUD cert cards + badges section
+/contact.html            → Cyberpunk skyline contact page
+/style.css               → Global neon theme + animations
+/assets/                 → Icons, skyline image, glyphs, etc.
+[ ABOUT ME ] [ PROJECTS ] [ SKILLS ] [ CERTIFICATIONS ] [ CONTACT ]
+                                   [ ABOUT ME ] [ PROJECTS ] [ SKILLS ] [ CERTIFICATIONS ] [ CONTACT ]
+Kendra Blankenship  
+Network Support & Cybersecurity  
+
+[ ABOUT ME ] [ PROJECTS ] [ SKILLS ] [ CERTIFICATIONS ] [ CONTACT ]
+/* ===== Echo-City Global Styles ===== */
+
+:root {
+  --bg-main: #05060a;
+  --bg-panel: #0b0f1a;
+  --bg-panel-soft: #0f1422;
+  --accent-cyan: #35e4ff;
+  --accent-magenta: #ff3ea5;
+  --accent-soft: #9b8cff;
+  --text-main: #f5f7ff;
+  --text-muted: #9aa0c2;
+  --border-strong: #1b2236;
+  --shadow-soft: 0 0 18px rgba(53, 228, 255, 0.18);
+  --shadow-soft-magenta: 0 0 18px rgba(255, 62, 165, 0.18);
+  --radius-hard: 0.6rem;
+  --transition-fast: 0.18s ease-out;
+  --transition-med: 0.28s ease-out;
+}
+
+/* Hybrid fonts: tech headers + modern body */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Exo+2:wght@500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #101426 0, #05060a 55%);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Layout Shell ===== */
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
+}
+
+/* Top bar for inner pages */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Front page layout */
+.front-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+/* ===== Portrait Panel ===== */
+
+.portrait-panel {
+  background: linear-gradient(145deg, #0b0f1a, #05060a);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-hard);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.portrait-frame {
+  position: relative;
+  border-radius: var(--radius-hard);
+  border: 1px solid rgba(53, 228, 255, 0.4);
+  padding: 0.4rem;
+  overflow: hidden;
+}
+
+.portrait-inner {
+  background: radial-gradient(circle at 20% 0, rgba(53, 228, 255, 0.25), transparent 55%),
+              radial-gradient(circle at 80% 100%, rgba(255, 62, 165, 0.25), transparent 55%),
+              #05060a;
+  border-radius: calc(var(--radius-hard) - 0.2rem);
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Placeholder text for portrait */
+.portrait-inner span {
+  opacity: 0.8;
+}
+
+/* ===== Name + Title ===== */
+
+.identity-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.identity-name {
+  font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.identity-title {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-soft);
+}
+
+/* ===== Bracketed Tabs (Front: centered, Inner: top-right) ===== */
+
+.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.nav-tabs-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.nav-tab {
+  position: relative;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(53, 228, 255, 0.4);
+  color: var(--text-main);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(53, 228, 255, 0.18), transparent 60%);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast),
+              background var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.nav-tab span {
+  opacity: 0.9;
+}
+
+.nav-tab.active {
+  border-color: var(--accent-magenta);
+  color: var(--accent-magenta);
+  box-shadow: var(--shadow-soft-magenta);
+}
+
+.nav-tab:hover {
+  border-color: var(--accent-magenta);
+  box-shadow: var(--shadow-soft), var(--shadow-soft-magenta);
+  transform: translateY(-1px);
+}
+
+/* ===== Résumé Hex Tile ===== */
+
+.resume-tile {
+  margin-top: 1.75rem;
+  display: inline-flex;
+}
+
+.resume-hex {
+  position: relative;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 62, 165, 0.6);
+  color: var(--accent-magenta);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: radial-gradient(circle at center, rgba(255, 62, 165, 0.18), transparent 65%);
+  box-shadow: var(--shadow-soft-magenta);
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast),
+              border-color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.resume-hex-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(255, 62, 165, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.resume-hex:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(255, 62, 165, 0.4);
+  border-color: #ff6ac0;
+}
+
+/* ===== HUD Panels (Inner Pages) ===== */
+
+.hud-panel {
+  background: linear-gradient(145deg, #0b0f1a, #05060a);
+  border-radius: var(--radius-hard);
+  border: 1px solid var(--border-strong);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
+  max-width: 960px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.hud-header {
+  font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent-cyan);
+  margin-bottom: 1rem;
+}
+
+.hud-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Skills / segmented lists */
+.segmented-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.segment-chip {
+  background: #05060a;
+  border-radius: var(--radius-hard);
+  border: 1px solid var(--border-strong);
+  padding: 0.9rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.segment-chip-label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.segment-chip-value {
+  font-size: 0.85rem;
+  color: var(--accent-soft);
+}
+
+.segment-chip:hover {
+  border-color: rgba(53, 228, 255, 0.7);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+}
+
+/* Certifications cards */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.cert-card {
+  background: #05060a;
+  border-radius: var(--radius-hard);
+  border: 1px solid var(--border-strong);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.cert-title {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.cert-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.cert-badge {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-cyan);
+}
+
+.cert-card:hover {
+  border-color: rgba(53, 228, 255, 0.7);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+}
+
+/* Projects hex-ish tiles */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-tile {
+  background: #05060a;
+  border-radius: var(--radius-hard);
+  border: 1px solid var(--border-strong);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.project-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(53, 228, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  margin-bottom: 0.4rem;
+}
+
+.project-title {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.project-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.project-tile:hover {
+  border-color: rgba(255, 62, 165, 0.7);
+  box-shadow: var(--shadow-soft-magenta);
+  transform: translateY(-1px);
+}
+
+/* ===== Contact / Skyline ===== */
+
+.contact-shell {
+  max-width: 960px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.skyline-banner {
+  position: relative;
+  border-radius: var(--radius-hard);
+  border: 1px solid var(--border-strong);
+  overflow: hidden;
+  background: linear-gradient(135deg, #05060a, #0b0f1a);
+  min-height: 180px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.skyline-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(53, 228, 255, 0.25), transparent 60%),
+    radial-gradient(circle at bottom, rgba(255, 62, 165, 0.25), transparent 60%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.skyline-content {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-panel {
+  margin-top: 1.5rem;
+}
+
+/* Simple contact list */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.contact-label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.contact-value a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+
+.contact-value a:hover {
+  color: var(--accent-magenta);
+}
+
+/* ===== Cyber Flicker Page Transition ===== */
+
+@keyframes cyber-flicker {
+  0% { opacity: 0; filter: blur(2px); }
+  20% { opacity: 0.4; filter: blur(1.5px); }
+  40% { opacity: 0.15; filter: blur(2px); }
+  60% { opacity: 0.7; filter: blur(1px); }
+  80% { opacity: 0.3; filter: blur(1.5px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+
+.page-shell {
+  animation: cyber-flicker 0.35s ease-out;
+}
+
+/* ===== Footer ===== */
+
+.footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 800px) {
+  .front-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-panel {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .top-bar {
+    justify-content: center;
+  }
+
+  .hud-panel {
+    padding: 1.25rem;
+  }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Kendra Blankenship | IT & Networking Professional</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    :root {
-      --bg-main: #050510;
-      --bg-panel: #0b0b1a;
-      --bg-panel-alt: #0f0f24;
-      --accent-cyan: #27f3ff;
-      --accent-magenta: #ff3bbf;
-      --accent-soft: #9b6bff;
-      --text-main: #f5f5ff;
-      --text-muted: #a0a0c0;
-      --border-glow: 0 0 12px rgba(39, 243, 255, 0.6),
-                     0 0 24px rgba(255, 59, 191, 0.4);
-      --radius-angled: 0 18px 0 18px;
-      --transition-fast: 0.18s ease-out;
-      --grid-line: rgba(255, 255, 255, 0.04);
-    }
-    /* Background canvas for particles */
-#particleCanvas {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  pointer-events: none;
-}
-
-/* Scanning beam */
-.scan-beam {
-  position: fixed;
-  top: -50%;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(
-    to bottom,
-    rgba(39, 243, 255, 0) 0%,
-    rgba(39, 243, 255, 0.15) 50%,
-    rgba(255, 59, 191, 0) 100%
-  );
-  transform: rotate(-8deg);
-  animation: scan 12s linear infinite;
-  z-index: -1;
-  pointer-events: none;
-}
-
-@keyframes scan {
-  0% { top: -60%; }
-  100% { top: 120%; }
-}
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #151530 0, #050510 55%, #020208 100%);
-      color: var(--text-main);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-
-    /* Subtle background grid */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 16px 64px;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .hero-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-
-    .hero-main {
-      flex: 1 1 260px;
-    }
-
-    .hero-name {
-      font-size: 2.2rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-name span.bracket {
-      color: var(--accent-magenta);
-      font-size: 1.4rem;
-    }
-
-    .hero-title {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent-cyan);
-      margin-top: 4px;
-    }
-
-    .hero-tagline {
-      margin-top: 14px;
-      color: var(--text-muted);
-      max-width: 620px;
-    }
-
-    .typing-line {
-      margin-top: 10px;
-      font-family: "Consolas", "Fira Code", monospace;
-      color: var(--accent-cyan);
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid var(--accent-magenta);
-      width: 0;
-      animation: typing 4s steps(40, end) forwards,
-                 blink 0.8s step-end infinite;
-      font-size: 0.95rem;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    .hero-meta {
-      flex: 0 0 260px;
-      background: linear-gradient(135deg, rgba(39, 243, 255, 0.08), rgba(255, 59, 191, 0.04));
-      border-radius: var(--radius-angled);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--border-glow);
-      padding: 14px 16px;
-      font-size: 0.85rem;
-    }
-
-    .meta-label {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.7rem;
-      color: var(--accent-soft);
-      margin-bottom: 6px;
-    }
-
-    .meta-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 4px;
-    }
-
-    .meta-key {
-      color: var(--text-muted);
-    }
-
-    .meta-value {
-      text-align: right;
-    }
-
-    /* Section layout */
-    .section {
-      margin-top: 32px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .section-header span.bracket {
-      color: var(--accent-magenta);
-      font-size: 1.1rem;
-    }
-
-    .section-title {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.85rem;
-      color: var(--accent-cyan);
-    }
-
-    .section-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-left: auto;
-    }
-
-    /* HUD grid */
-    .hud-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .hud-panel {
-      position: relative;
-      background: radial-gradient(circle at top left, rgba(39, 243, 255, 0.12), var(--bg-panel));
-      border-radius: var(--radius-angled);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 14px 16px 16px;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-      overflow: hidden;
-    }
-
-    .hud-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(39, 243, 255, 0.18), rgba(255, 59, 191, 0.18));
-      opacity: 0;
-      mix-blend-mode: screen;
-      transition: opacity var(--transition-fast);
-      pointer-events: none;
-    }
-
-    .hud-panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius-angled);
-      border: 1px solid rgba(39, 243, 255, 0.0);
-      box-shadow: 0 0 0 rgba(39, 243, 255, 0.0);
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-      pointer-events: none;
-    }
-
-    .hud-panel:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--border-glow);
-      border-color: rgba(255, 255, 255, 0.18);
-      background: radial-gradient(circle at top left, rgba(255, 59, 191, 0.16), var(--bg-panel-alt));
-    }
-
-    .hud-panel:hover::before {
-      opacity: 0.25;
-    }
-
-    .hud-panel:hover::after {
-      border-color: rgba(39, 243, 255, 0.6);
-      box-shadow: var(--border-glow);
-    }
-
-    .hud-tag {
-      font-family: "Consolas", "Fira Code", monospace;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-soft);
-      margin-bottom: 6px;
-    }
-
-    .hud-title {
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-    }
-
-    .hud-title span.bracket {
-      color: var(--accent-magenta);
-    }
-
-    .hud-meta {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .hud-list {
-      list-style: none;
-      font-size: 0.85rem;
-      color: var(--text-main);
-    }
-
-    .hud-list li {
-      position: relative;
-      padding-left: 16px;
-      margin-bottom: 4px;
-    }
-
-    .hud-list li::before {
-      content: "◆";
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 0.55rem;
-      color: var(--accent-cyan);
-    }
-
-    /* Skills layout */
-    .skills-columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .skills-list {
-      list-style: none;
-      font-size: 0.85rem;
-      color: var(--text-main);
-    }
-
-    .skills-list li {
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .skills-list li::before {
-      content: "▹";
-      font-size: 0.7rem;
-      color: var(--accent-cyan);
-    }
-
-    .skills-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    /* Contact HUD */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .contact-item {
-      font-size: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .contact-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.7rem;
-      color: var(--accent-soft);
-    }
-
-    .contact-value a {
-      color: var(--accent-cyan);
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(39, 243, 255, 0.4);
-      padding-bottom: 1px;
-      transition: color var(--transition-fast), border-color var(--transition-fast);
-      word-break: break-all;
-    }
-
-    .contact-value a:hover {
-      color: var(--accent-magenta);
-      border-color: rgba(255, 59, 191, 0.7);
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-align: center;
-      opacity: 0.7;
-    }
-
-    footer span {
-      color: var(--accent-cyan);
-    }
-
-    @media (max-width: 640px) {
-      .hero-row {
-        flex-direction: column;
-      }
-      .typing-line {
-        white-space: normal;
-        width: 100%;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Kendra Blankenship – Network Support & Cybersecurity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="hero-row">
-        <div class="hero-main">
-          <div class="hero-name">
-            <span class="bracket">&lt;</span>
-            <span>Kendra&nbsp;Blankenship</span>
-            <span class="bracket">&gt;</span>
-          </div>
-          <div class="hero-title">IT &amp; Networking Professional</div>
-          <p class="hero-tagline">
-            Hands-on IT and networking professional in training with experience in system troubleshooting,
-            virtualized lab environments, Linux configuration, and network diagnostics. Bringing 20+ years
-            of customer service and 8 years of military logistics to technical problem-solving, secure
-            operations, and calm performance under pressure.
-          </p>
-          <div class="typing-line">
-            &gt; building secure, reliable systems one packet at a time...
+  <div class="page-shell">
+
+    <div class="front-layout">
+      <!-- Left: Portrait panel -->
+      <aside class="portrait-panel">
+        <div class="portrait-frame">
+          <div class="portrait-inner">
+            <!-- Replace this with an <img> later -->
+            <span>Portrait Placeholder</span>
           </div>
         </div>
+      </aside>
 
-        <aside class="hero-meta">
-          <div class="meta-label">Profile Snapshot</div>
-          <div class="meta-row">
-            <div class="meta-key">Location</div>
-            <div class="meta-value">Pensacola, FL</div>
-          </div>
-          <div class="meta-row">
-            <div class="meta-key">Focus</div>
-            <div class="meta-value">IT Support &amp; Networking</div>
-          </div>
-          <div class="meta-row">
-            <div class="meta-key">Background</div>
-            <div class="meta-value">Army Logistics, Customer Service</div>
-          </div>
-          <div class="meta-row">
-            <div class="meta-key">Currently</div>
-            <div class="meta-value">Network Support Services Student</div>
-          </div>
-        </aside>
-      </div>
-    </header>
-
-    <!-- Skills HUD -->
-    <section class="section" id="skills">
-      <div class="section-header">
-        <span class="bracket">&lt;</span>
-        <div class="section-title">Skills HUD</div>
-        <span class="bracket">&gt;</span>
-        <div class="section-subtitle">core capabilities &amp; strengths</div>
-      </div>
-
-      <div class="skills-columns">
-        <div class="hud-panel">
-          <div class="hud-tag">Cluster: Technical</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Systems &amp; Devices<span class="bracket">&gt;</span></div>
-          <ul class="skills-list">
-            <li>Computer assembly and hardware replacement</li>
-            <li>Formatting, reimaging, and OS installation</li>
-            <li>Virtual machine setup and lab environments</li>
-            <li>Basic Linux navigation and configuration</li>
-            <li>Cloud fundamentals and hosted services awareness</li>
-          </ul>
+      <!-- Right: Identity + tabs + resume -->
+      <main>
+        <div class="identity-block">
+          <div class="identity-name">Kendra Blankenship</div>
+          <div class="identity-title">Network Support &amp; Cybersecurity</div>
         </div>
 
-        <div class="hud-panel">
-          <div class="hud-tag">Cluster: Networking</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Network Diagnostics<span class="bracket">&gt;</span></div>
-          <ul class="skills-list">
-            <li>Basic routing and switching concepts</li>
-            <li>Packet inspection and ICMP analysis</li>
-            <li>Wireshark capture and filtering</li>
-            <li>IP addressing and connectivity troubleshooting</li>
-            <li>Cable assembly and RJ‑45 termination</li>
-          </ul>
+        <nav class="nav-tabs">
+          <a href="about.html" class="nav-tab"><span>[ ABOUT ME ]</span></a>
+          <a href="projects.html" class="nav-tab"><span>[ PROJECTS ]</span></a>
+          <a href="skills.html" class="nav-tab"><span>[ SKILLS ]</span></a>
+          <a href="certifications.html" class="nav-tab"><span>[ CERTIFICATIONS ]</span></a>
+          <a href="contact.html" class="nav-tab"><span>[ CONTACT ]</span></a>
+        </nav>
+
+        <div class="resume-tile">
+          <a href="assets/Kendra_Blankenship_Resume.pdf" class="resume-hex" target="_blank" rel="noopener">
+            <div class="resume-hex-icon">▢</div>
+            <span>Download Résumé</span>
+          </a>
         </div>
+      </main>
+    </div>
 
-        <div class="hud-panel">
-          <div class="hud-tag">Cluster: Security</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Security Foundations<span class="bracket">&gt;</span></div>
-          <ul class="skills-list">
-            <li>OSINT fundamentals and data gathering</li>
-            <li>Secure configuration basics</li>
-            <li>Threat awareness and common attack types</li>
-            <li>Chain‑of‑custody awareness from logistics work</li>
-          </ul>
-        </div>
-
-        <div class="hud-panel">
-          <div class="hud-tag">Cluster: Professional</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Soft Skills<span class="bracket">&gt;</span></div>
-          <ul class="skills-list">
-            <li>Customer service and client support</li>
-            <li>Clear communication and expectation setting</li>
-            <li>Conflict resolution and de‑escalation</li>
-            <li>Process improvement and documentation</li>
-            <li>Leadership, teamwork, and adaptability</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects HUD -->
-    <section class="section" id="projects">
-      <div class="section-header">
-        <span class="bracket">&lt;</span>
-        <div class="section-title">Projects HUD</div>
-        <span class="bracket">&gt;</span>
-        <div class="section-subtitle">hands‑on labs &amp; builds</div>
-      </div>
-
-      <div class="hud-grid">
-        <!-- Project 1: Lubuntu Deployment -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 01</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Lubuntu Deployment<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Samsung Chromebook &mdash; OS Replacement</div>
-          <ul class="hud-list">
-            <li>Removed write‑protection screw to enable firmware changes.</li>
-            <li>Flashed custom firmware to support full Linux installation.</li>
-            <li>Installed Lubuntu and verified hardware compatibility.</li>
-            <li>Configured system updates and basic security settings.</li>
-            <li>Documented the full process for repeatability.</li>
-          </ul>
-        </article>
-
-        <!-- Project 2: EVE-NG Labs -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 02</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>EVE‑NG Labs<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Virtual Networking Topologies</div>
-          <ul class="hud-list">
-            <li>Built multi‑router and switch topologies in EVE‑NG.</li>
-            <li>Practiced VLANs, trunking, and inter‑VLAN routing.</li>
-            <li>Captured traffic to observe ARP, ICMP, and TCP flows.</li>
-            <li>Used break/fix scenarios to practice troubleshooting.</li>
-          </ul>
-        </article>
-
-        <!-- Project 3: Kali Fundamentals -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 03</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Kali Fundamentals<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Intro Security Lab Environment</div>
-          <ul class="hud-list">
-            <li>Deployed Kali Linux in a controlled lab environment.</li>
-            <li>Explored basic reconnaissance and scanning tools.</li>
-            <li>Practiced safe, ethical workflows in isolated networks.</li>
-            <li>Documented findings and tool outputs for later review.</li>
-          </ul>
-        </article>
-
-        <!-- Project 4: Wireshark Deep Dive -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 04</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Wireshark Deep Dive<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Packet Capture &amp; Analysis</div>
-          <ul class="hud-list">
-            <li>Captured live traffic to analyze ICMP, TCP, and DNS.</li>
-            <li>Used filters to isolate conversations and troubleshoot connectivity.</li>
-            <li>Identified latency patterns and misconfigurations.</li>
-            <li>Saved capture profiles for repeatable analysis.</li>
-          </ul>
-        </article>
-
-        <!-- Project 5: OSINT Case Study -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 05</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>OSINT Case Study<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Open‑Source Intelligence Workflow</div>
-          <ul class="hud-list">
-            <li>Gathered publicly available data from multiple sources.</li>
-            <li>Correlated information to build a coherent profile.</li>
-            <li>Documented tools, search operators, and limitations.</li>
-            <li>Emphasized ethical boundaries and privacy awareness.</li>
-          </ul>
-        </article>
-
-        <!-- Project 6: Home Network Mapping -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 06</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Home Network Map<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Topology &amp; Hardening Exercise</div>
-          <ul class="hud-list">
-            <li>Mapped home network devices and connections.</li>
-            <li>Identified default credentials and weak configurations.</li>
-            <li>Improved Wi‑Fi security and segmentation.</li>
-            <li>Created a simple network diagram for reference.</li>
-          </ul>
-        </article>
-
-        <!-- Project 7: Windows Troubleshooting -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 07</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Windows Recovery<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">System Reset &amp; Support</div>
-          <ul class="hud-list">
-            <li>Guided a full Windows reset for a family system.</li>
-            <li>Backed up critical data and verified integrity.</li>
-            <li>Reinstalled applications and validated performance.</li>
-            <li>Documented steps for non‑technical users.</li>
-          </ul>
-        </article>
-
-        <!-- Project 8: Echoed Chambers -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 08</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Echoed Chambers<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Cinematic Short‑Form Content</div>
-          <ul class="hud-list">
-            <li>Produced symbolic, story‑driven short‑form videos.</li>
-            <li>Managed scripting, voiceover, editing, and publishing.</li>
-            <li>Designed cohesive visual branding and thumbnails.</li>
-            <li>Demonstrated creative direction and technical editing.</li>
-          </ul>
-        </article>
-
-        <!-- Project 9: Lab Documentation -->
-        <article class="hud-panel">
-          <div class="hud-tag">Project 09</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>Lab Documentation<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Repeatable Technical Playbooks</div>
-          <ul class="hud-list">
-            <li>Created step‑by‑step notes for labs and fixes.</li>
-            <li>Captured screenshots and commands for future reuse.</li>
-            <li>Organized content by topic (networking, Linux, security).</li>
-            <li>Built a foundation for future knowledge base articles.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Certifications HUD -->
-    <section class="section" id="certifications">
-      <div class="section-header">
-        <span class="bracket">&lt;</span>
-        <div class="section-title">Certifications HUD</div>
-        <span class="bracket">&gt;</span>
-        <div class="section-subtitle">credentials &amp; training</div>
-      </div>
-
-      <div class="hud-grid">
-        <article class="hud-panel">
-          <div class="hud-tag">Track: CompTIA / Core</div>
-          <div class="hud-title"><span class="bracket">&lt;</span>CompTIA A+<span class="bracket">&gt;</span></div>
-          <div class="hud-meta">Core 1 &amp; Core 2</div>
-          <ul class="hud-list">
-            <li>Hardware, OS, and troubleshooting fundamentals.</li>
-            <li>End‑user support and device configuration.</li>
-          </ul>
-        </article>
-<article class="hud-panel">
-  <div class="hud-tag">Track: Security</div>
-  <div class="hud-title">
-    <span class="bracket">&lt;</span>CompTIA Security+<span class="bracket">&gt;</span>
-  </div>
-  <div class="hud-meta">Certification</div>
-  <ul class="hud-list">
-    <li>Threats, attacks, and vulnerabilities</li>
-    <li>Secure network architecture</li>
-    <li>Identity and access management</li>
-    <li>Risk management and mitigation</li>
-    <li>Cryptography and PKI fundamentals</li>
-    <li>Incident response procedures</li>
-  </ul>
-</article>
-<article class="hud-panel">
-  <div class="hud-tag">Track: Cybersecurity</div>
-  <div class="hud-title">
-    <span class="bracket">&lt;</span>IT Specialist – Cybersecurity<span class="bracket">&gt;</span>
-  </div>
-  <div class="hud-meta">Certification</div>
-  <ul class="hud-list">
-    <li>Security fundamentals and terminology</li>
-    <li>Threat identification and mitigation</li>
-    <li>Access control and authentication concepts</li>
-    <li>Network and device security practices</li>
-    <li>Investigative and analytical mindset development</li>
-    <li>Awareness of business security risks</li>
-  </ul>
-</article>
-        
-        <article class="hud-panel">
-  <div class="hud-tag">Track: Networking</div>
-  <div class="hud-title">
-    <span class="bracket">&lt;</span>IT Specialist – Networking<span class="bracket">&gt;</span>
-  </div>
-  <div class="hud-meta">Certification</div>
-  <ul class="hud-list">
-    <li>TCP/IP fundamentals</li>
-    <li>Networking services and protocols</li>
-    <li>LAN/WAN topologies</li>
-    <li>Wired and wireless troubleshooting</li>
-    <li>OSI model understanding</li>
-  </ul>
-</article>
-
-        <article class="hud-panel">
-  <div class="hud-tag">Track: Security</div>
-  <div class="hud-title">
-    <span class="bracket">&lt;</span>IT Specialist – Network Security<span class="bracket">&gt;</span>
-  </div>
-  <div class="hud-meta">Certification</div>
-  <ul class="hud-list">
-    <li>Core security principles</li>
-    <li>Operating system security</li>
-    <li>Network and device protection</li>
-    <li>Secure computing practices</li>
-    <li>Security layers and software</li>
-  </ul>
-</article>
-
-      <article class="hud-panel">
-  <div class="hud-tag">Track: Cloud</div>
-  <div class="hud-title">
-    <span class="bracket">&lt;</span>IT Specialist – Cloud Computing<span class="bracket">&gt;</span>
-  </div>
-  <div class="hud-meta">Certification</div>
-  <ul class="hud-list">
-    <li>Cloud service models (IaaS, PaaS, SaaS)</li>
-    <li>Cloud solution design concepts</li>
-    <li>Scalability and elasticity</li>
-    <li>Cloud networking and storage basics</li>
-    <li>Security considerations in cloud environments</li>
-  </ul>
-</article>
-<article class="hud-panel">
-  <div class="hud-tag">Track: Device Management</div>
-  <div class="hud-title">
-    <span class="bracket">&lt;</span>IT Specialist – Device Configuration & Management<span class="bracket">&gt;</span>
-  </div>
-  <div class="hud-meta">Certification</div>
-  <ul class="hud-list">
-    <li>Windows device configuration</li>
-    <li>Device mobility and security</li>
-    <li>Cloud service integration</li>
-    <li>Data and access management</li>
-    <li>Endpoint administration fundamentals</li>
-  </ul>
-</article>        
-      </div>
-    </section>
-
-    <!-- Contact HUD -->
-    <section class="section" id="contact">
-      <div class="section-header">
-        <span class="bracket">&lt;</span>
-        <div class="section-title">Contact HUD</div>
-        <span class="bracket">&gt;</span>
-        <div class="section-subtitle">channels &amp; links</div>
-      </div>
-
-      <div class="hud-panel">
-        <div class="hud-tag">Signal Matrix</div>
-        <div class="hud-title"><span class="bracket">&lt;</span>Reach Out<span class="bracket">&gt;</span></div>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <div class="contact-label">Email</div>
-            <div class="contact-value">
-              <a href="mailto:Kendrablankenship2@gmail.com">Kendrablankenship2@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-label">GitHub</div>
-            <div class="contact-value">
-              <a href="https://k-blankenship.github.io" target="_blank" rel="noopener">
-                k-blankenship.github.io
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-label">LinkedIn</div>
-            <div class="contact-value">
-              <a href="https://www.linkedin.com/in/kendra-blankenship-70177038b" target="_blank" rel="noopener">
-                linkedin.com/in/kendra-blankenship-70177038b
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-label">Location</div>
-            <div class="contact-value">
-              Pensacola, Florida &mdash; Open to hybrid/remote
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-label">Résumé</div>
-            <div class="contact-value">
-              <!-- Update this href once your PDF is ready -->
-              <a href="Kendra%20Blankenship%20Full%20Resume.pdf" target="_blank" rel="noopener">
-  Download Résumé (PDF)
-</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <span>&lt;/&gt;</span> Crafted by Kendra Blankenship &mdash; IT &amp; Networking Professional
+    <footer class="footer">
+      Echo‑City Interface · Kendra Blankenship · Network Support &amp; Cybersecurity
     </footer>
   </div>
-  <!-- Animated Background Effects -->
-<canvas id="particleCanvas"></canvas>
-<div class="scan-beam"></div>
-  <script>
-const canvas = document.getElementById("particleCanvas");
-const ctx = canvas.getContext("2d");
-
-let particles = [];
-let w, h;
-
-function resize() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener("resize", resize);
-resize();
-
-function createParticles(count) {
-  particles = [];
-  for (let i = 0; i < count; i++) {
-    particles.push({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      size: Math.random() * 2 + 1,
-      speedX: (Math.random() - 0.5) * 0.3,
-      speedY: (Math.random() - 0.5) * 0.3,
-      color: Math.random() > 0.5 ? "rgba(39,243,255,0.8)" : "rgba(255,59,191,0.8)"
-    });
-  }
-}
-
-createParticles(120);
-
-function animate() {
-  ctx.clearRect(0, 0, w, h);
-
-  particles.forEach(p => {
-    p.x += p.speedX;
-    p.y += p.speedY;
-
-    if (p.x < 0) p.x = w;
-    if (p.x > w) p.x = 0;
-    if (p.y < 0) p.y = h;
-    if (p.y > h) p.y = 0;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = p.color;
-    ctx.fill();
-  });
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-</script>
 </body>
 </html>
+
