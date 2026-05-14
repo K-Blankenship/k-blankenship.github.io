@@ -185,6 +185,17 @@ body {
   color: var(--accent-soft);
   margin-top: 0.85rem; /* ← add this line */
 }
+@keyframes nav-pulse {
+  0% {
+    box-shadow: 0 0 0px rgba(53, 228, 255, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(53, 228, 255, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(53, 228, 255, 0.0);
+  }
+}
 
 /* ===== Bracketed Tabs (Front: centered, Inner: top-right) ===== */
 
