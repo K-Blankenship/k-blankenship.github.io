@@ -100,11 +100,12 @@ body {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  .portrait-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
+.portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #05060a;
+    border-radius: 12px;
 }
 
 /* Placeholder text for portrait */
