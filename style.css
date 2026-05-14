@@ -162,6 +162,7 @@ body {
   height: 2px;
   background: var(--accent);
   animation: neon-flicker 2.4s infinite;
+  z-index: 2;
 }
 
 @keyframes neon-flicker {
