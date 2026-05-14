@@ -196,8 +196,8 @@ body {
 /* ===== Résumé Hex Tile ===== */
 
 .resume-tile {
-  margin-top: 1.75rem;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
 }
 
 .resume-hex {
