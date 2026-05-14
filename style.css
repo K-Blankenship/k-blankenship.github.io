@@ -163,6 +163,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--accent-soft);
+  margin-top: 0.85rem; /* ← add this line */
 }
 
 /* ===== Bracketed Tabs (Front: centered, Inner: top-right) ===== */
