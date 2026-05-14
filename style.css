@@ -239,10 +239,9 @@ body {
   opacity: 0.9;
 }
 
-.nav-tab.active {
-  border-color: var(--accent-magenta);
-  color: var(--accent-magenta);
-  box-shadow: var(--shadow-soft-magenta);
+.nav-tab:hover {
+  animation: nav-pulse 1.6s infinite;
+  transform: translateY(-2px);
 }
 
 .nav-tab:hover {
