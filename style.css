@@ -17,6 +17,8 @@
 }  /* ← THIS is the missing brace */
 /* ===== Stardust Background ===== */
 
+/* ===== Stardust Background (Soft Version) ===== */
+
 .stardust {
   position: fixed;
   inset: 0;
@@ -31,28 +33,28 @@
   position: absolute;
   inset: 0;
   background-repeat: repeat;
-  background-size: 2px 2px;
-  opacity: 0.22;
-  animation: stardust-drift 22s linear infinite;
+  background-size: 6px 6px; /* more spacing */
+  opacity: 0.08; /* MUCH softer */
+  animation: stardust-drift 28s linear infinite;
 }
 
 /* Cyan layer */
 .stardust::before {
-  background-image: radial-gradient(var(--accent-cyan) 1px, transparent 1px);
-  filter: drop-shadow(0 0 6px var(--accent-cyan));
+  background-image: radial-gradient(var(--accent-cyan) 0.5px, transparent 1px);
+  filter: drop-shadow(0 0 2px var(--accent-cyan));
 }
 
 /* Magenta layer */
 .stardust::after {
-  background-image: radial-gradient(var(--accent-magenta) 1px, transparent 1px);
-  filter: drop-shadow(0 0 6px var(--accent-magenta));
-  animation-duration: 32s;
+  background-image: radial-gradient(var(--accent-magenta) 0.5px, transparent 1px);
+  filter: drop-shadow(0 0 2px var(--accent-magenta));
+  animation-duration: 40s;
   animation-direction: reverse;
 }
 
 @keyframes stardust-drift {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-180px); }
+  100% { transform: translateY(-120px); }
 }
 
 /* Hybrid fonts: tech headers + modern body */
