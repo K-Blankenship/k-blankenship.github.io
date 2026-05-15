@@ -709,16 +709,19 @@ html, body {
     grid-template-columns: 1fr;
   }
 
-  .portrait-panel {
-    max-width: 320px;
-    margin: 0 auto;
-  }
+.portrait-panel {
+  max-width: 320px;
+  margin: 0 auto;
+}
 
+/* Center nav buttons ONLY on the Projects page */
 .projects-page .top-bar {
   justify-content: center;
 }
 
-  .hud-panel {
-    padding: 1.25rem;
-  }
+/* HUD panel padding (global) */
+.hud-panel {
+  padding: 1.25rem;
+}
+
 
