@@ -530,10 +530,10 @@ html, body {
   flex-direction: column;
   gap: 0.4rem;
 
-  /* NEW: soft idle glow */
+  /* Stronger idle glow */
   box-shadow:
-    0 0 8px rgba(180, 0, 255, 0.25),
-    inset 0 0 10px rgba(180, 0, 255, 0.15);
+    0 0 14px rgba(180, 0, 255, 0.35),
+    inset 0 0 14px rgba(180, 0, 255, 0.25);
 
   transition:
     border-color var(--transition-fast),
@@ -543,11 +543,11 @@ html, body {
 
 .project-card:hover,
 .project-card:focus-within {
-  border-color: rgba(180, 0, 255, 0.95);
+  border-color: rgba(180, 0, 255, 1);
   box-shadow:
-    0 0 22px rgba(180, 0, 255, 0.9),
-    inset 0 0 25px rgba(180, 0, 255, 0.5);
-  transform: translateY(-3px);
+    0 0 32px rgba(180, 0, 255, 1),
+    inset 0 0 30px rgba(180, 0, 255, 0.6);
+  transform: translateY(-4px);
 }
 
 .project-icon {
