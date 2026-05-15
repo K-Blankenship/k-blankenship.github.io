@@ -1,22 +1,51 @@
 /* ===== Echo-City Global Styles ===== */
 
 :root {
-  --accent: #35e4ff;
-  --bg-main: #05060a;
-  --bg-panel: #0b0f1a;
-  --bg-panel-soft: #0f1422;
-  --accent-cyan: #35e4ff;
-  --accent-magenta: #ff3ea5;
-  --accent-soft: #9b8cff;
-  --text-main: #f5f7ff;
-  --text-muted: #9aa0c2;
-  --border-strong: #1b2236;
-  --shadow-soft: 0 0 18px rgba(53, 228, 255, 0.18);
-  --shadow-soft-magenta: 0 0 18px rgba(255, 62, 165, 0.18);
-  --radius-hard: 0.6rem;
-  --transition-fast: 0.18s ease-out;
-  --transition-med: 0.28s ease-out;
+  /* your color variables */
 }
+
+/* ⭐ Place stardust here */
+.stardust {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stardust::before,
+.stardust::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-size: 2px 2px;
+  opacity: 0.25;
+  animation: drift 18s linear infinite;
+}
+
+.stardust::before {
+  background-image: radial-gradient(var(--accent-cyan) 1px, transparent 1px);
+  filter: drop-shadow(0 0 6px var(--accent-cyan));
+}
+
+.stardust::after {
+  background-image: radial-gradient(var(--accent-magenta) 1px, transparent 1px);
+  filter: drop-shadow(0 0 6px var(--accent-magenta));
+  animation-duration: 26s;
+  animation-direction: reverse;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+/* Then the rest of your CSS */
+body { … }
+.page-shell { … }
+.identity-name::after { … }
+.portrait-frame { … }
 
 /* Hybrid fonts: tech headers + modern body */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Exo+2:wght@500;600&family=Inter:wght@300;400;500;600&display=swap');
