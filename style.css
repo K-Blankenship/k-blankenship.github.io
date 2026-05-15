@@ -84,7 +84,6 @@ body {
   border-radius: var(--radius-hard);
   border: 1px solid rgba(53, 228, 255, 0.4);
   padding: 0.4rem;
-  overflow: hidden;
 }
 
 .portrait-inner {
@@ -100,6 +99,7 @@ body {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  overflow: hidden;
 }
 .portrait-img {
     width: 100%;
