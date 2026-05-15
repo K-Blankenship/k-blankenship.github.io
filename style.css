@@ -361,6 +361,18 @@ html, body {
 }
 
 /* ===== HUD Panels (Inner Pages) ===== */
+/* ===== Projects Page Header ===== */
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.projects-subtitle {
+  color: var(--accent-soft);
+  opacity: 0.85;
+  margin-top: 0.5rem;
+}
 
 /* ===== About Page HUD Frame ===== */
 
