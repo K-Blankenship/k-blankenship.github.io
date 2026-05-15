@@ -413,9 +413,12 @@ html, body {
 }
 
 .hud-subtitle {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-family: 'Exo 2', system-ui, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-magenta);
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 /* Skills / segmented lists */
