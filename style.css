@@ -714,11 +714,11 @@ html, body {
     margin: 0 auto;
   }
 
-  .top-bar {
-    justify-content: center;
-  }
+.projects-page .top-bar {
+  justify-content: center;
+}
 
   .hud-panel {
     padding: 1.25rem;
   }
-}
+
