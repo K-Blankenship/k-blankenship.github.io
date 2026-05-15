@@ -529,16 +529,24 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  transition: border-color var(--transition-fast),
-              box-shadow var(--transition-fast),
-              transform var(--transition-fast);
+
+  /* NEW: soft idle glow */
+  box-shadow:
+    0 0 8px rgba(180, 0, 255, 0.25),
+    inset 0 0 10px rgba(180, 0, 255, 0.15);
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
 }
+
 .project-card:hover,
 .project-card:focus-within {
-  border-color: rgba(180, 0, 255, 0.9);
+  border-color: rgba(180, 0, 255, 0.95);
   box-shadow:
-    0 0 18px rgba(180, 0, 255, 0.8),
-    inset 0 0 20px rgba(180, 0, 255, 0.4);
+    0 0 22px rgba(180, 0, 255, 0.9),
+    inset 0 0 25px rgba(180, 0, 255, 0.5);
   transform: translateY(-3px);
 }
 
