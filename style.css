@@ -73,13 +73,6 @@ html, body {
   min-height: 100%;
 }
 
-body {
-  background: var(--bg-main);
-  color: var(--text-main);
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-}
-
 /* ===== Layout Shell ===== */
 
 .page-shell {
