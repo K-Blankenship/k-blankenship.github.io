@@ -237,27 +237,26 @@ html, body {
 }
 
 @keyframes neon-flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-  }
-  20%, 24%, 55% {
-    opacity: 0.35;
-  }
-  22% {
-    opacity: 0.15;
-  }
+  0%, 100% { opacity: 1; }
+  92% { opacity: 0.92; }
+  94% { opacity: 0.85; }
+  96% { opacity: 0.97; }
+  98% { opacity: 0.88; }
 }
+
 @keyframes scanline-drift {
   0% { background-position: 0 0; }
   100% { background-position: 0 4px; }
 }
+
 .identity-title {
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--accent-soft);
-  margin-top: 0.85rem; /* ← add this line */
+  margin-top: 0.85rem;
 }
+
 @keyframes nav-pulse {
   0% {
     box-shadow: 0 0 0px rgba(53, 228, 255, 0.0);
@@ -530,10 +529,13 @@ html, body {
   flex-direction: column;
   gap: 0.4rem;
 
-  /* Stronger idle glow */
+  /* Idle glow */
   box-shadow:
     0 0 14px rgba(180, 0, 255, 0.35),
     inset 0 0 14px rgba(180, 0, 255, 0.25);
+
+  /* Flicker animation */
+  animation: neon-flicker 4.5s infinite steps(1);
 
   transition:
     border-color var(--transition-fast),
