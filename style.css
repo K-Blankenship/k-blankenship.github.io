@@ -15,6 +15,45 @@
   --transition-fast: 0.18s ease-out;
   --transition-med: 0.28s ease-out;
 }  /* ← THIS is the missing brace */
+/* ===== Stardust Background ===== */
+
+.stardust {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stardust::before,
+.stardust::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-size: 2px 2px;
+  opacity: 0.22;
+  animation: stardust-drift 22s linear infinite;
+}
+
+/* Cyan layer */
+.stardust::before {
+  background-image: radial-gradient(var(--accent-cyan) 1px, transparent 1px);
+  filter: drop-shadow(0 0 6px var(--accent-cyan));
+}
+
+/* Magenta layer */
+.stardust::after {
+  background-image: radial-gradient(var(--accent-magenta) 1px, transparent 1px);
+  filter: drop-shadow(0 0 6px var(--accent-magenta));
+  animation-duration: 32s;
+  animation-direction: reverse;
+}
+
+@keyframes stardust-drift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-180px); }
+}
 
 /* Hybrid fonts: tech headers + modern body */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Exo+2:wght@500;600&family=Inter:wght@300;400;500;600&display=swap');
