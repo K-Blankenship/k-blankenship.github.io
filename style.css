@@ -521,6 +521,7 @@ html, body {
 }
 
 .project-card {
+  position: relative; /* ← add this line */
   background: #05060a;
   border-radius: var(--radius-hard);
   border: 1px solid var(--border-strong);
