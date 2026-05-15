@@ -159,7 +159,7 @@ body {
   transform: translateX(-50%);
   width: 60%;
   height: 2px;
-  background: var(--accent);
+  background: red !important;
   animation: neon-flicker 2.4s infinite;
   z-index: 2;
 }
