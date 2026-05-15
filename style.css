@@ -125,7 +125,6 @@ body {
   align-items: center;
   position: relative;
   z-index: 0; /* important */
-  animation: scanline-drift 6s linear infinite;
 }
 
 .identity-block::before {
