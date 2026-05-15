@@ -1,6 +1,7 @@
 /* ===== Echo-City Global Styles ===== */
 
 :root {
+  --accent: #35e4ff;
   --bg-main: #05060a;
   --bg-panel: #0b0f1a;
   --bg-panel-soft: #0f1422;
