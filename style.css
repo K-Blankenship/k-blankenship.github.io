@@ -530,7 +530,15 @@ body {
 }
 
 .page-shell {
+  position: relative;
+}
+
+.page-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   animation: cyber-flicker 0.35s ease-out;
+  pointer-events: none;
 }
 
 /* ===== Footer ===== */
