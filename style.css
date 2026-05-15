@@ -521,7 +521,7 @@ html, body {
 }
 
 .project-card {
-  position: relative; /* ← add this line */
+  position: relative;
   background: #05060a;
   border-radius: var(--radius-hard);
   border: 1px solid var(--border-strong);
@@ -542,6 +542,25 @@ html, body {
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
     transform var(--transition-fast);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+
+  opacity: 0.22;
+  animation: scanline-drift 6s linear infinite;
 }
 
 .project-card:hover,
