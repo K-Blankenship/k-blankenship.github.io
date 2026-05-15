@@ -37,9 +37,9 @@ html, body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
 }
+
 
 /* ===== Layout Shell ===== */
 
@@ -163,6 +163,7 @@ body {
   background: var(--accent);
   animation: neon-flicker 2.4s infinite;
   z-index: 2;
+  box-shadow: 0 0 8px var(--accent-cyan), 0 0 12px var(--accent-magenta);
 }
 
 @keyframes neon-flicker {
