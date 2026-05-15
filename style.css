@@ -506,13 +506,22 @@ html, body {
 }
 
 /* Projects hex-ish tiles */
+/* ===== Project Grid ===== */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  margin-top: 2rem;
 }
 
-.project-tile {
+/* Mobile-friendly: switches to 1 column */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
   background: #05060a;
   border-radius: var(--radius-hard);
   border: 1px solid var(--border-strong);
@@ -523,6 +532,14 @@ html, body {
   transition: border-color var(--transition-fast),
               box-shadow var(--transition-fast),
               transform var(--transition-fast);
+}
+.project-card:hover,
+.project-card:focus-within {
+  border-color: rgba(180, 0, 255, 0.9);
+  box-shadow:
+    0 0 18px rgba(180, 0, 255, 0.8),
+    inset 0 0 20px rgba(180, 0, 255, 0.4);
+  transform: translateY(-3px);
 }
 
 .project-icon {
