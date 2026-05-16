@@ -114,20 +114,35 @@ html, body {
 }
 
 /* Top bar for inner pages */
+/* Global top bar (all pages) */
 .top-bar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
-/* Center nav buttons ONLY on the Projects page */
+
+/* Projects page header spacing */
+.projects-page .projects-header {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 /* Center nav buttons ONLY on the Projects page */
 .projects-page .top-bar {
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
 
+/* Force nav to center inside the flex container */
 .projects-page .top-bar nav {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.projects-page .nav-tabs-inner {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Front page layout */
