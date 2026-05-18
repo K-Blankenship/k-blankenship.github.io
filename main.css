@@ -575,9 +575,16 @@ html, body {
   box-shadow: var(--shadow-soft);
   transform: translateY(-1px);
 }
+
 /* =========================================
    PROJECTS GRID + PROJECT CARDS
    ========================================= */
+
+/* Projects subtitle */
+.projects-subtitle {
+  text-align: center;
+  color: var(--accent-magenta);
+}
 
 /* Grid layout */
 .project-grid {
