@@ -748,7 +748,7 @@ html, body {
 
 @media (max-width: 800px) {
   .portrait-panel {
-    max-width: 200px;
+    max-width: 240px;
     margin: 0 auto;
   }
 }
@@ -764,7 +764,7 @@ html, body {
 
   /* Center portrait panel */
   .portrait-panel {
-  max-width: 200px; /* adjust this number to taste */
+  max-width: 240px; /* adjust this number to taste */
   margin: 0 auto;
 }
 
