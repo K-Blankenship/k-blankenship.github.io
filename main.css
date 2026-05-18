@@ -145,7 +145,7 @@ html, body {
 .front-layout {
   display: grid;
   grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-  gap: 2.5rem;
+  gap: 1.2rem;
   align-items: center;
   margin-top: 1.5rem;
 }
@@ -180,7 +180,7 @@ html, body {
   background: linear-gradient(145deg, #0b0f1a, #05060a);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-hard);
-  padding: 1.5rem;
+  padding: 0.5rem;
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
@@ -239,11 +239,11 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   align-items: center;
   position: relative;
-  z-index: 0;
+  z-index: 3;
 }
 
 /* Scanline overlay */
@@ -276,7 +276,7 @@ html, body {
   height: 2px;
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
   animation: neon-flicker 2.4s infinite;
-  z-index: 2;
+  z-index: 5;
   box-shadow:
     0 0 8px var(--accent-cyan),
     0 0 12px var(--accent-magenta);
