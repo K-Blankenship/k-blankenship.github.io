@@ -275,7 +275,7 @@ html, body {
   width: 60%;
   height: 2px;
   background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-  animation: neon-flicker 2.4s infinite;
+  animation: neon-flicker 2.4s infinite steps(1);
   z-index: 5;
   box-shadow:
     0 0 8px var(--accent-cyan),
