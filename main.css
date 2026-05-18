@@ -450,6 +450,20 @@ html, body {
           mask-composite: exclude;
   pointer-events: none;
 }
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
 
 /* HUD text styles */
 .hud-header {
