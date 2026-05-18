@@ -590,7 +590,7 @@ html, body {
 .projects-page .projects-subtitle,
 .projects-header .projects-subtitle {
   text-align: center;
-  color: var(--accent-cyan);
+  color: var(--accent-magenta);
 }
 
 /* Grid layout */
