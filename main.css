@@ -794,6 +794,66 @@ html, body {
   opacity: 0.7;
 }
 /* =========================================
+   PARTICLE FIELD (CYAN / MAGENTA / PURPLE)
+   ========================================= */
+
+.particle-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle-field::before,
+.particle-field::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-repeat: repeat;
+  animation: drift 22s linear infinite;
+  opacity: 0.35;
+}
+
+/* Layer 1 — cyan particles */
+.particle-field::before {
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.9) 0px,
+    transparent 2px
+  );
+  background-size: 4px 4px;
+}
+
+/* Layer 2 — magenta + purple mix */
+.particle-field::after {
+  background-image: radial-gradient(
+      circle,
+      rgba(255, 0, 255, 0.9) 0px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle,
+      rgba(180, 0, 255, 0.9) 0px,
+      transparent 2px
+    );
+  background-size: 6px 6px, 8px 8px;
+  animation-duration: 35s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(200px, 300px, 0);
+  }
+}
+
+/* =========================================
    RESPONSIVE RULES
    ========================================= */
 
