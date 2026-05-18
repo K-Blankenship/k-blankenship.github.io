@@ -224,8 +224,8 @@ html, body {
 
 /* Actual portrait image */
 .portrait-img {
-  width: 75%;
-  height: 75%;
+  width: 25%;
+  height: 25%;
   object-fit: contain;
   background-color: #05060a;
   border-radius: 12px;
