@@ -207,7 +207,10 @@ html, body {
   align-self: center;
   width: fit-content;
 
-  /* Flicker + pulse */
+  /* Outer border */
+  border: 1px solid rgba(53, 228, 255, 0.4);
+
+   /* Flicker + pulse */
   animation:
     neon-flicker 5.5s infinite steps(1),
     nav-pulse 6s infinite;
