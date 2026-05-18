@@ -201,12 +201,11 @@ html, body {
 .portrait-frame {
   position: relative;
   border-radius: 12px;
-  border: 1px solid rgba(53, 228, 255, 0.4);
   padding: 0.25rem;
-  display: inline-block;/* was 0.4rem */
+  display: inline-block;
   align-self: center;
   width: fit-content;
-  background: transparent;
+  background: transparent; /* ← THIS FIXES THE INVISIBLE COLORS */
 
   /* Outer border */
   border: 1px solid rgba(53, 228, 255, 0.4);
@@ -454,7 +453,7 @@ html, body {
 .portrait-frame::before {
   content: "";
   position: absolute;
-  inset: -2px; /* ← move it OUTSIDE the glow */
+  inset: -2px;
   border-radius: inherit;
   border: 2px solid transparent;
   background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta)) border-box;
