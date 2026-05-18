@@ -193,6 +193,13 @@ html, body {
   border-radius: var(--radius-hard);
   border: 1px solid rgba(53, 228, 255, 0.4);
   padding: 0.25rem; /* was 0.4rem */
+
+  /* Flicker + pulse */
+  animation:
+    neon-flicker 5.5s infinite steps(1),
+    nav-pulse 6s infinite;
+
+  /* Glow */
   box-shadow:
     0 0 8px var(--accent-cyan),
     0 0 12px var(--accent-magenta),
