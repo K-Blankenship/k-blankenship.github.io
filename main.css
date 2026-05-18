@@ -586,14 +586,12 @@ html, body {
 }
 
 /* Projects title */
-.projects-title {
+.projects-header .projects-title {
   text-align: center;
   color: var(--accent-cyan);
 }
 
 /* Projects subtitle */
-.projects-section .projects-subtitle,
-.projects-page .projects-subtitle,
 .projects-header .projects-subtitle {
   text-align: center;
   color: var(--accent-magenta);
