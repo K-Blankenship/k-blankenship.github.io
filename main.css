@@ -87,6 +87,17 @@ html, body {
   animation-direction: reverse;
 }
 
+@keyframes neon-flicker {
+  0%   { opacity: 1; }
+  5%   { opacity: 0.4; }
+  10%  { opacity: 0.8; }
+  15%  { opacity: 0.3; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0.6; }
+  30%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
 @keyframes stardust-drift {
   0% { transform: translateY(0); }
   100% { transform: translateY(-120px); }
