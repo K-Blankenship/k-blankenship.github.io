@@ -581,11 +581,12 @@ html, body {
    ========================================= */
 
 /* Projects subtitle */
-.projects-subtitle {
+.projects-section .projects-subtitle,
+.projects-page .projects-subtitle,
+.projects-header .projects-subtitle {
   text-align: center;
   color: var(--accent-magenta);
 }
-
 /* Grid layout */
 .project-grid {
   display: grid;
