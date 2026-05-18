@@ -486,11 +486,47 @@ html, body {
 /* =========================================
    SEGMENTED SKILLS LIST
    ========================================= */
+.skills-header {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 
-.segmented-list {
+.skills-title {
+  font-size: 2.5rem;
+  color: var(--neon-blue);
+}
+
+.skills-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.skill-box {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--neon-blue);
+  padding: 1.75rem;   /* ← THIS is the correct place */
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.skill-label {
+  font-size: 1.1rem;
+  color: var(--neon-purple);
+  margin-bottom: 0.5rem;
+}
+
+.skill-value {
+  color: var(--text-muted);
+  line-height: 1.4;
 }
 
 .segment-chip {
