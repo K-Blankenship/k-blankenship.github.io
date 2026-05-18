@@ -228,12 +228,9 @@ html, body {
     #05060a;
   border-radius: 12px;
   width: 100%;
-  height: fit-content;
-  align-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 3 / 4;   /* ← FIX #1 */
   overflow: hidden;
+  display: block;        /* ← FIX #2 */
 }
 
 .portrait-inner span {
