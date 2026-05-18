@@ -141,12 +141,12 @@ html, body {
   margin-bottom: 1rem;
 }
 
-/* Front page layout */
-.front-layout {
-  display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-  gap: 0.1rem;
+/* Centered layout for home page */
+.centered-layout {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 1.2rem;
   margin-top: 1.5rem;
 }
 
@@ -235,7 +235,7 @@ html, body {
    IDENTITY BLOCK (Name + Title)
    ========================================= */
 
-.identity-block {
+.identity-center {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
