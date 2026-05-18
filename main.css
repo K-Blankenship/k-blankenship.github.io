@@ -224,11 +224,11 @@ html, body {
 
 /* Actual portrait image */
 .portrait-img {
-  width: 5%;
-  height: 5%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   background-color: #05060a;
-  border-radius: 9px;
+  border-radius: 12px;
 }
 
 /* =========================================
@@ -759,9 +759,9 @@ html, body {
 
   /* Center portrait panel */
   .portrait-panel {
-    max-width: 320px;
-    margin: 0 auto;
-  }
+  max-width: 260px; /* adjust this number to taste */
+  margin: 0 auto;
+}
 
   /* Center nav buttons on Projects page */
   .projects-page .top-bar {
