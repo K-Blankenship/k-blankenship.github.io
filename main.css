@@ -749,9 +749,13 @@ html, body {
 @media (max-width: 800px) {
 
   /* Front page layout collapses to 1 column */
-  .front-layout {
-    grid-template-columns: 1fr;
-  }
+.front-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
 
   /* Center portrait panel */
   .portrait-panel {
