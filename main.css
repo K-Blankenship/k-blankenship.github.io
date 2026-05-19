@@ -66,7 +66,7 @@ html, body {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.03;
+  opacity: 0.02;
   font-family: 'Orbitron', monospace;
   color: var(--accent-cyan);
   text-shadow: 0 0 8px var(--accent-cyan);
@@ -77,6 +77,7 @@ html, body {
   top: -100%;
   font-size: 1rem;
   animation: matrix-fall linear infinite;
+  animation-duration: 6s; /* REQUIRED */
   white-space: nowrap;
   opacity: 0.8;
 }
