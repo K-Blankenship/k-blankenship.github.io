@@ -223,17 +223,6 @@ html, body {
    GLOBAL LAYOUT SHELL + PAGE STRUCTURE
    ========================================= */
 
-.page-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
-  position: relative;
-  background: transparent !important;
-  isolation: isolate;
-  z-index: 1;
-}
-
 /* Top bar (global) */
 .top-bar {
   display: flex;
