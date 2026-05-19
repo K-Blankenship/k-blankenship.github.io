@@ -491,13 +491,17 @@ html, body {
 }
 
 .skills-title {
+  font-family: var(--main-font);
+  color: var(--neon-blue); /* cyan */
   font-size: 2.5rem;
-  color: var(--neon-blue);
+  font-weight: 700;
 }
 
 .skills-subtitle {
-  color: var(--text-muted);
+  font-family: var(--main-font);
+  color: var(--neon-purple); /* magenta */
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .skills-grid {
