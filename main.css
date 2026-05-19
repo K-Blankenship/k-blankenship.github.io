@@ -217,9 +217,10 @@ html, body {
   display: flex;
   flex-direction: column;
   padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
-  position: relative; /* required for page transition flicker */
+  position: relative;
   background: transparent !important;
-  isolation: isolate; /* ← REQUIRED */
+  isolation: isolate; /* REQUIRED */
+  z-index: 1; /* REQUIRED */
 }
 
 /* Top bar (global) */
@@ -403,6 +404,9 @@ html, body {
 .nav-tabs-inner {
   margin-left: auto !important;
   margin-right: auto !important;
+  z-index: 2;
+  position: relative;
+  background: transparent !important;
 }
 
 /* Individual nav tab */
