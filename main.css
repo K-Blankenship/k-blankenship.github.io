@@ -496,6 +496,8 @@ html, body {
   text-shadow: 0 0 12px rgba(53, 228, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.22em;
+  font-size: 1.1rem;
+ margin-bottom: 1rem;  
 }
 
 .skills-header .skills-subtitle {
@@ -504,6 +506,8 @@ html, body {
   text-shadow: 0 0 10px rgba(255, 62, 165, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
 }
 .skills-grid {
   display: grid;
