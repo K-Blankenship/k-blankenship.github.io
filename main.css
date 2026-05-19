@@ -1023,4 +1023,8 @@ html, body {
   .hud-panel {
     padding: 1.25rem;
   }
+* {
+  outline: 1px solid red !important;
+}
+
  /* ← FIXED: this closing brace was missing */
