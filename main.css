@@ -490,20 +490,15 @@ html, body {
   margin-bottom: 2rem;
 }
 
-.skills-title {
-  font-family: var(--main-font);
-  color: var(--neon-blue); /* cyan */
-  font-size: 2.5rem;
-  font-weight: 700;
+.skills-header .skills-title {
+  color: var(--neon-blue);
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
 }
 
-.skills-subtitle {
-  font-family: var(--main-font);
-  color: var(--neon-purple); /* magenta */
-  font-size: 1rem;
-  font-weight: 500;
+.skills-header .skills-subtitle {
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
 }
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
