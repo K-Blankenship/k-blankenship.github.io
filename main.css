@@ -491,13 +491,11 @@ html, body {
 }
 
 .skills-header .skills-title {
-  color: var(--neon-blue);
-  text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+  color: var(--neon-blue) !important;
 }
 
 .skills-header .skills-subtitle {
-  color: var(--neon-purple);
-  text-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+  color: var(--neon-purple) !important;
 }
 .skills-grid {
   display: grid;
@@ -519,9 +517,7 @@ html, body {
 }
 
 .skill-label {
-  color: var(--soft-purple); /* the lighter purple from Home */
-  font-weight: 600;
-  text-shadow: 0 0 6px rgba(180, 100, 255, 0.5);
+  color: var(--soft-purple) !important;
 }
 
 .skill-value {
