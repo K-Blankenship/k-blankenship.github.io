@@ -214,8 +214,8 @@ html, body {
   padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
   position: relative;
   background: transparent !important;
-  isolation: isolate; /* REQUIRED */
-  z-index: 1; /* REQUIRED */
+  isolation: isolate;
+  z-index: 1;
 }
 
 /* Top bar (global) */
