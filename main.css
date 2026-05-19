@@ -52,13 +52,51 @@ html, body {
    BACKGROUND EFFECTS
    Stardust + Laser Sweep
    ========================================= */
+.page-shell,
+.skills-header,
+.skills-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* MATRIX BACKGROUND */
+.matrix-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.18;
+  font-family: 'Orbitron', monospace;
+  color: var(--accent-cyan);
+  text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.matrix-bg span {
+  position: absolute;
+  top: -100%;
+  font-size: 1rem;
+  animation: matrix-fall linear infinite;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+/* Falling animation */
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(120vh);
+  }
+}
 
 /* ----- Stardust Background ----- */
 .stardust {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 }
 
