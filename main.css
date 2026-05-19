@@ -66,10 +66,10 @@ html, body {
   z-index: -1 !important;
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.02;
+  opacity: 0.15; /* ← temporarily increased so you can SEE it */
   font-family: 'Orbitron', monospace;
-  color: var(--accent-cyan);
-  text-shadow: 0 0 8px var(--accent-cyan);
+  color: #00ffff;
+  text-shadow: 0 0 12px #00ffff;
 }
 
 .matrix-bg span {
@@ -77,19 +77,14 @@ html, body {
   top: -100%;
   font-size: 1rem;
   animation: matrix-fall linear infinite;
-  animation-duration: 6s; /* REQUIRED */
   white-space: nowrap;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Falling animation */
 @keyframes matrix-fall {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(120vh);
-  }
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(120vh); }
 }
 
 /* 20 COLUMN MATRIX POSITIONS + SPEEDS */
