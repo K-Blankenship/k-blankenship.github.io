@@ -51,7 +51,19 @@ html, body {
 /* =========================================
    BACKGROUND EFFECTS
    Stardust + Laser Sweep
-   ========================================= */
+========================================= */
+
+/* FULL page-shell block MUST come last */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
+  position: relative;
+  background: transparent !important;
+  isolation: isolate;
+  z-index: 1;
+}
 .page-shell,
 .skills-header,
 .skills-grid {
