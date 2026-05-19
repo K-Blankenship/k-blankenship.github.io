@@ -808,8 +808,8 @@ html, body {
 
 /* Title + metadata */
 .project-title {
-  font-size: 0.9rem;
-  color: var(--text-main);
+  color: var(--accent-purple); /* or the hex you used */
+  text-shadow: 0 0 8px var(--accent-purple);
 }
 
 .project-meta {
