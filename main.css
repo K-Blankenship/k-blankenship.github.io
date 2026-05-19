@@ -512,13 +512,12 @@ html, body {
 }
 
 .skill-box {
-  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--neon-blue);
-  padding: 1.75rem;   /* ← THIS is the correct place */
-  border-radius: 10px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+  box-shadow:
+    0 0 12px rgba(0, 255, 255, 0.3),
+    inset 0 0 12px rgba(255, 0, 255, 0.25);
 }
+
 
 .skill-label {
   color: var(--neon-purple);
