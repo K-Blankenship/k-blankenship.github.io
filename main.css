@@ -102,6 +102,21 @@ html, body {
 .matrix-bg span:nth-child(9)  { left: 50%; animation-duration: 6s;  animation-delay: 2.2s; }
 .matrix-bg span:nth-child(10) { left: 56%; animation-duration: 7s;  animation-delay: 1.8s; }
 
+.matrix-bg span:nth-child(odd) {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.matrix-bg span:nth-child(even) {
+  color: var(--accent-magenta);
+  text-shadow: 0 0 8px var(--accent-magenta);
+}
+
+.matrix-bg span:nth-child(3n) {
+  color: var(--accent-soft);
+  text-shadow: 0 0 8px var(--accent-soft);
+}
+
 /* ----- Stardust Background ----- */
 .stardust {
   position: fixed;
