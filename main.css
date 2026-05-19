@@ -756,9 +756,6 @@ html, body {
     0 0 14px rgba(180, 0, 255, 0.35),
     inset 0 0 14px rgba(180, 0, 255, 0.25);
 
-  /* Flicker animation */
-  animation: neon-flicker 4.5s infinite steps(1);
-
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
