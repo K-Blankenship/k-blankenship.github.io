@@ -82,7 +82,7 @@ html, body {
   z-index: -1 !important;
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.15; /* ← temporarily increased so you can SEE it */
+  opacity: 0.35; /* ← temporarily increased so you can SEE it */
   font-family: 'Orbitron', monospace;
   color: #00ffff;
   text-shadow: 0 0 12px #00ffff;
