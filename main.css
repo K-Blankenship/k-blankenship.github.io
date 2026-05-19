@@ -212,7 +212,6 @@ html, body {
    GLOBAL LAYOUT SHELL + PAGE STRUCTURE
    ========================================= */
 
-/* Main page wrapper */
 .page-shell {
   min-height: 100vh;
   display: flex;
@@ -220,6 +219,7 @@ html, body {
   padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
   position: relative; /* required for page transition flicker */
   background: transparent !important;
+  isolation: isolate; /* ← REQUIRED */
 }
 
 /* Top bar (global) */
