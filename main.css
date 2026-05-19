@@ -492,10 +492,12 @@ html, body {
 
 .skills-header .skills-title {
   color: var(--neon-blue) !important;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
 }
 
 .skills-header .skills-subtitle {
   color: var(--neon-purple) !important;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
 }
 .skills-grid {
   display: grid;
@@ -518,6 +520,8 @@ html, body {
 
 .skill-label {
   color: var(--soft-purple) !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(180, 100, 255, 0.5);
 }
 
 .skill-value {
