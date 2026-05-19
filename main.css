@@ -66,7 +66,7 @@ html, body {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.25;
+  opacity: 0.03;
   font-family: 'Orbitron', monospace;
   color: var(--accent-cyan);
   text-shadow: 0 0 8px var(--accent-cyan);
