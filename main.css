@@ -521,14 +521,14 @@ html, body {
 }
 
 .skill-label {
-  font-size: 1.1rem;
   color: var(--neon-purple);
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 0, 255, 0.6);
 }
 
 .skill-value {
   color: var(--text-muted);
-  line-height: 1.4;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.25);
 }
 
 .segment-chip {
