@@ -148,8 +148,6 @@ html, body {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0;
-  margin: 0;
 }
 
 /* Centered layout for home page */
@@ -324,9 +322,8 @@ html, body {
 
 /* Inner pages nav container */
 .nav-tabs-inner {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Individual nav tab */
