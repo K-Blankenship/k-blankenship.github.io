@@ -59,6 +59,10 @@ html, body {
   z-index: 1;
 }
 
+.matrix-bg { … }
+.matrix-bg span { … }
+@keyframes matrix-fall { … }
+
 /* MATRIX BACKGROUND */
 .matrix-bg {
   position: fixed;
