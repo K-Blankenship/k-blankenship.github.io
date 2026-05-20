@@ -255,6 +255,26 @@ html, body {
   z-index: 0;
   min-height: 100vh; 
 }
+.projects-page {
+  background: rgba(0, 0, 0, 0.85);
+  position: relative;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 12s infinite linear;
+}
+.particle.cyan { background: #00ffff; }
+.particle.magenta { background: #ff00ff; }
+.particle.purple { background: var(--accent-purple); }
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-200px) translateX(40px); }
+}
 
 /* =========================================
    PORTRAIT PANEL (Front Page)
