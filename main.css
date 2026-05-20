@@ -717,6 +717,11 @@ html, body {
 .projects-header .projects-title {
   text-align: center;
   color: var(--accent-cyan);
+  text-shadow: 0 0 12px rgba(53, 228, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 1.1rem;
+ margin-bottom: 1rem;
 }
 
 /* Projects subtitle */
