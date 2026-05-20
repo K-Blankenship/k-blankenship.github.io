@@ -808,8 +808,8 @@ html, body {
 
 /* Title + metadata */
 .project-title {
-  color: var(--soft-purple);
-  text-shadow: 0 0 8px var(--soft-purple);
+  color: var(--accent-purple);
+  text-shadow: 0 0 8px var(--accent-purple);
   font-family: 'Orbitron', sans-serif;
   font-size: 1.4rem;
   margin-bottom: 0.25rem;
