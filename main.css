@@ -282,6 +282,7 @@ html, body {
    PORTRAIT PANEL (Front Page)
    ========================================= */
 
+/* FINAL portrait panel block */
 .portrait-panel {
   background: linear-gradient(145deg, #0b0f1a, #05060a);
   border: 1px solid var(--border-strong);
@@ -291,8 +292,13 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
 
+  /* width control */
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto;
+  align-self: center;
+}
 /* Outer glowing frame */
 .portrait-frame {
   position: relative;
@@ -344,12 +350,6 @@ html, body {
   object-fit: cover;
   background-color: #05060a;
   border-radius: 12px;
-}
-/* Lock portrait panel width BEFORE responsive overrides */
-.portrait-panel {
-  max-width: 260px;
-  width: 100%;
-  margin: 0 auto;
 }
 
 /* =========================================
