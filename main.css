@@ -403,30 +403,6 @@ html, body {
   pointer-events: none;
 }
 
-/* Inner container */
-.portrait-inner {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 12px;
-  position: relative;
-}
-
-.portrait-inner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.04) 0px,
-    rgba(255, 255, 255, 0.04) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  animation: scanline-drift 6s linear infinite;
-  pointer-events: none;
-}
-
 /* The portrait image */
 .portrait-img {
   width: 100%;
