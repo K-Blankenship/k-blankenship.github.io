@@ -356,28 +356,8 @@ box-shadow:
   0%   { transform: translateY(0); }
   100% { transform: translateY(6px); }
 }
+
 /* Resume Button */
-.resume-button {
-  display: inline-block;
-  padding: 0.6rem 1.4rem;
-  margin-top: 1rem;
-  border-radius: 6px;
-  text-transform: uppercase;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-
-  background: var(--accent-magenta);
-  color: #fff;
-  border: 1px solid var(--accent-cyan);
-
-  box-shadow:
-    0 0 10px rgba(255, 62, 165, 0.6),
-    0 0 14px rgba(53, 228, 255, 0.4);
-
-  transition: 0.25s ease;
-}
-
 .resume-button:hover {
   background: var(--accent-cyan);
   color: #000;
