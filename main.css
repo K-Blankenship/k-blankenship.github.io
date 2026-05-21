@@ -840,8 +840,8 @@ text-shadow: 0 0 10px rgba(255, 62, 165, 0.4);
 
 /* Title + metadata */
 .project-title {
-  color: var(--accent-purple);
-  text-shadow: 0 0 8px var(--accent-purple);
+  color: var(--accent-soft);
+  text-shadow: 0 0 8px var(--accent-soft);
   font-family: 'Orbitron', sans-serif;
   font-size: 1.4rem;
   margin-bottom: 0.25rem;
