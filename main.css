@@ -330,7 +330,7 @@ html, body {
   height: 100%;
   aspect-ratio: 3 / 4;   /* ← FIX #1 */
   overflow: hidden;
-  display: block;        /* ← FIX #2 */
+  display: block;
 }
 
 .portrait-inner span {
