@@ -248,21 +248,19 @@ box-shadow:
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -6px;
+  bottom: -0.35rem;
   transform: translateX(-50%);
-
   width: 60%;
   height: 2px;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent-cyan),
-    transparent
-  );
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
 
   animation: neon-flicker 2.4s infinite;
-  opacity: 0.85;
+  z-index: 2;
+
+  box-shadow:
+    0 0 8px var(--accent-cyan),
+    0 0 12px var(--accent-magenta);
 }
 
 /* Title */
