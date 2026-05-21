@@ -430,12 +430,10 @@ html, body {
 
 .hud-panel {
   position: relative;
-  padding: 2.5rem;
-  margin-top: 4rem;
-
+  padding: 0;
+  aspect-ratio: 1 / 1; /* ⭐ ADD THIS */
   border: 2px solid rgba(53, 228, 255, 0.4);
   border-radius: 12px;
-
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(6px);
 
