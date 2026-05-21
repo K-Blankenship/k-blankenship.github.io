@@ -634,9 +634,9 @@ html, body {
 }
 
 .skill-label {
-  color: var(--accent-purple) !important;
+  color: var(--accent-soft) !important;
   font-weight: 600;
-  text-shadow: 0 0 6px var(--accent-purple);
+  text-shadow: 0 0 6px var((--accent-soft);
 }
 
 .skill-value {
