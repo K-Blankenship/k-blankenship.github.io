@@ -378,6 +378,7 @@ html, body {
   position: relative;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 600;
+ color: var(--accent-magenta) !important;
 }
 
 /* Animated underline */
