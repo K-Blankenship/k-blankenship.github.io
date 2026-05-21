@@ -299,6 +299,17 @@ html, body {
   align-items: center;
 }
 
+/* Subtle neon flicker */
+@keyframes portrait-flicker {
+  0%   { opacity: 1; }
+  20%  { opacity: 0.92; }
+  35%  { opacity: 1; }
+  50%  { opacity: 0.88; }
+  65%  { opacity: 1; }
+  80%  { opacity: 0.94; }
+  100% { opacity: 1; }
+}
+
 /* Outer glowing frame */
 .portrait-frame {
   position: relative;
@@ -307,10 +318,15 @@ html, body {
   border-radius: 12px;
   overflow: hidden;
   background: #0b0f1a;
-  border: 1px solid var(--border-strong);
+
+  /* Stronger neon glow (matches your old screenshot) */
+  border: 1px solid rgba(53, 228, 255, 0.45);
   box-shadow:
-    0 0 18px rgba(53, 228, 255, 0.25),
+    0 0 14px rgba(53, 228, 255, 0.55),
+    0 0 22px rgba(255, 62, 165, 0.55),
     inset 0 0 18px rgba(255, 62, 165, 0.25);
+
+  animation: portrait-flicker 3.8s infinite ease-in-out;
 }
 
 /* Gradient glow border */
@@ -319,13 +335,20 @@ html, body {
   position: absolute;
   inset: -2px;
   border-radius: 12px;
+
   border: 2px solid transparent;
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta)) border-box;
+  background: linear-gradient(
+    135deg,
+    var(--accent-cyan),
+    var(--accent-magenta)
+  ) border-box;
+
   -webkit-mask:
     linear-gradient(#000 0 0) padding-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
+
   pointer-events: none;
 }
 
@@ -334,7 +357,9 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 10px;
+
+  /* Match radius so glow doesn’t clip */
+  border-radius: 12px;
   position: relative;
 }
 
@@ -358,6 +383,7 @@ html, body {
   0%   { transform: translateY(0); }
   100% { transform: translateY(6px); }
 }
+
 /* =========================================
    HUD PANELS (Neon Gradient Frame)
    ========================================= */
