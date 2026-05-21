@@ -282,75 +282,7 @@ html, body {
    PORTRAIT PANEL (Front Page)
    ========================================= */
 
-/* FINAL portrait panel block */
-.portrait-panel {
-  background: linear-gradient(145deg, #0b0f1a, #05060a);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-hard);
-  padding: 0.5rem;
-  box-shadow: var(--shadow-soft);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 
-  /* width control */
-  max-width: 260px;
-  width: 100%;
-  margin: 0 auto;
-  align-self: center;
-}
-/* Outer glowing frame */
-.portrait-frame {
-  position: relative;
-  border-radius: 12px;
-  padding: 0.25rem;
-  display: inline-block;
-  align-self: center;
-  width: fit-content;
-  background: transparent; /* ← THIS FIXES THE INVISIBLE COLORS */
-
-  /* Outer border */
-  border: 1px solid rgba(53, 228, 255, 0.4);
-
-   /* Flicker + pulse */
-  animation:
-    neon-flicker 5.5s infinite steps(1),
-    nav-pulse 6s infinite;
-
-  /* Glow */
-  box-shadow:
-    0 0 10px rgba(53, 228, 255, 0.55),
-    0 0 16px rgba(255, 62, 165, 0.55),
-    0 0 22px rgba(53, 228, 255, 0.35),
-    0 0 28px rgba(255, 62, 165, 0.35);
-}
-
-/* Inner gradient + placeholder */
-.portrait-inner {
-  background:
-    radial-gradient(circle at 20% 0, rgba(53, 228, 255, 0.25), transparent 55%),
-    radial-gradient(circle at 80% 100%, rgba(255, 62, 165, 0.25), transparent 55%),
-    #05060a;
-  border-radius: 12px;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 3 / 4;   /* ← FIX #1 */
-  overflow: hidden;
-  display: block;
-}
-
-.portrait-inner span {
-  opacity: 0.8;
-}
-
-/* Actual portrait image */
-.portrait-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-color: #05060a;
-  border-radius: 12px;
-}
 
 /* =========================================
    IDENTITY BLOCK (Name + Title)
@@ -558,7 +490,52 @@ html, body {
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   pointer-events: none;
+   /* ============================
+   FINAL CONSOLIDATED PORTRAIT SYSTEM
+   ============================ */
+
+/* Portrait Panel (outer container) */
+.portrait-panel {
+  background: linear-gradient(145deg, #0b0f1a, #05060a);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-hard);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-soft);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  /* Width control (prevents giant portrait) */
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto;
+  align-self: center;
 }
+
+/* Outer glowing frame */
+.portrait-frame {
+  position: relative;
+  border-radius: 12px;
+  padding: 0.25rem;
+  display: inline-block;
+  align-self: center;
+  width: fit-content;
+  background: transparent;
+
+  border: 1px solid rgba(53, 228, 255, 0.4);
+
+  animation:
+    neon-flicker 5.5s infinite steps(1),
+    nav-pulse 6s infinite;
+
+  box-shadow:
+    0 0 10px rgba(53, 228, 255, 0.55),
+    0 0 16px rgba(255, 62, 165, 0.55),
+    0 0 22px rgba(53, 228, 255, 0.35),
+    0 0 28px rgba(255, 62, 165, 0.35);
+}
+
 .portrait-frame::before {
   content: "";
   position: absolute;
@@ -572,6 +549,41 @@ html, body {
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   pointer-events: none;
+}
+/* Inner gradient container */
+.portrait-inner {
+  background:
+    radial-gradient(circle at 20% 0, rgba(53, 228, 255, 0.25), transparent 55%),
+    radial-gradient(circle at 80% 100%, rgba(255, 62, 165, 0.25), transparent 55%),
+    #05060a;
+
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  display: block;
+}
+
+.portrait-inner span {
+  opacity: 0.8;
+}
+
+/* Actual portrait image */
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #05060a;
+  border-radius: 12px;
+}
+
+/* Responsive reinforcement */
+@media (max-width: 800px) {
+  .portrait-panel {
+    max-width: 260px;
+    margin: 0 auto;
+  }
 }
 
 /* HUD text styles */
@@ -1036,13 +1048,6 @@ text-shadow: 0 0 10px rgba(255, 62, 165, 0.4);
    RESPONSIVE RULES
    ========================================= */
 
-@media (max-width: 800px) {
-  .portrait-panel {
-    max-width: 260px;
-    margin: 0 auto;
-  }
-}
-
   /* Front page layout collapses to 1 column */
 .front-layout {
   display: flex;
@@ -1050,12 +1055,6 @@ text-shadow: 0 0 10px rgba(255, 62, 165, 0.4);
   align-items: center;
   gap: 1.2rem;
   margin-top: 1.5rem;
-}
-
-  /* Center portrait panel */
-  .portrait-panel {
-  max-width: 260px; /* adjust this number to taste */
-  margin: 0 auto;
 }
 
   /* Center nav buttons on Projects page */
@@ -1068,17 +1067,6 @@ text-shadow: 0 0 10px rgba(255, 62, 165, 0.4);
     padding: 1.25rem;
   }
 
- /* ← FIXED: this closing brace was missing */
-/* FINAL portrait fix */
-body .portrait-panel {
-  max-width: 260px !important;
-  margin: 0 auto !important;
-}
-
-body .portrait-inner {
-  aspect-ratio: 3 / 4 !important;
-  display: block !important;
-}
 /* Restore footer muted color */
 body .footer {
   color: var(--text-muted) !important;
