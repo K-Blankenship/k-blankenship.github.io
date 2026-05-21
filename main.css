@@ -1021,3 +1021,15 @@ html, body {
     font-size: 1.2rem;
   }
 }
+/* FORCE portrait frame glow to override global styles */
+.portrait-frame {
+  box-shadow:
+    0 0 14px rgba(53, 228, 255, 0.55),
+    0 0 22px rgba(255, 62, 165, 0.55),
+    inset 0 0 14px rgba(53, 228, 255, 0.35),
+    inset 0 0 18px rgba(255, 62, 165, 0.25),
+    0 0 28px rgba(53, 228, 255, 0.35),
+    0 0 34px rgba(255, 62, 165, 0.35) !important;
+
+  animation: portrait-flicker 3.8s infinite ease-in-out !important;
+}
