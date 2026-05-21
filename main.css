@@ -345,6 +345,12 @@ html, body {
   background-color: #05060a;
   border-radius: 12px;
 }
+/* Lock portrait panel width BEFORE responsive overrides */
+.portrait-panel {
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto;
+}
 
 /* =========================================
    IDENTITY BLOCK (Name + Title)
