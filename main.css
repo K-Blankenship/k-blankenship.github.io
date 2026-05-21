@@ -408,7 +408,7 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.05) saturate(1.15);
+  border-radius: 12px; /* ⭐ ADD THIS */
 }
 
 /* Responsive: shrink slightly on mobile */
