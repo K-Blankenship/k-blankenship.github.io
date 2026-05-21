@@ -405,12 +405,12 @@ box-shadow:
   pointer-events: none;
 }
 
-/* The portrait image */
 .portrait-img {
   width: 100%;
-  height: 100%;
+  height: 100%;        /* ⭐ THIS FIXES THE BOTTOM GAP */
   object-fit: cover;
-  border-radius: 12px; /* ⭐ ADD THIS */
+  display: block;      /* ⭐ THIS REMOVES INLINE SPACING */
+  border-radius: 12px; /* ⭐ MATCHES THE HUD PANEL CORNERS */
 }
 
 /* Responsive: shrink slightly on mobile */
