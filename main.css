@@ -352,13 +352,14 @@ box-shadow:
 /* Subtle neon flicker */
 @keyframes portrait-flicker {
   0%   { opacity: 1; }
-  8%   { opacity: 0.92; }
-  15%  { opacity: 1; }
-  22%  { opacity: 0.85; }
-  38%  { opacity: 1; }
-  55%  { opacity: 0.9; }
-  72%  { opacity: 1; }
-  90%  { opacity: 0.95; }
+  5%   { opacity: 0.75; }
+  12%  { opacity: 1; }
+  20%  { opacity: 0.6; }
+  28%  { opacity: 1; }
+  42%  { opacity: 0.7; }
+  55%  { opacity: 1; }
+  72%  { opacity: 0.8; }
+  85%  { opacity: 1; }
   100% { opacity: 1; }
 }
 
