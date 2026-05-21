@@ -271,51 +271,58 @@ box-shadow:
   text-shadow: 0 0 8px var(--accent-soft);
 }
 .resume-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  margin: 1.2rem auto 0;
 
-  padding: 0.65rem 1.4rem;
-  margin-top: 1rem;
+  padding: 0.75rem 1.6rem;
 
   font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
   font-size: 0.9rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
 
-  color: var(--accent-cyan);
-  background: rgba(5, 6, 10, 0.65);
-  border: 1px solid rgba(53, 228, 255, 0.45);
+  color: var(--accent-magenta);
+  background: rgba(5, 6, 10, 0.65); /* DARK interior */
+  border: 2px solid rgba(255, 62, 165, 0.85); /* MAGENTA outline */
   border-radius: 10px;
 
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
   box-shadow:
-    0 0 12px rgba(53, 228, 255, 0.45),
-    0 0 18px rgba(255, 62, 165, 0.45);
+    0 0 14px rgba(255, 62, 165, 0.85),
+    0 0 22px rgba(255, 62, 165, 0.65);
 
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease;
+    color 0.25s ease;
+}
+
+/* Left neon square icon */
+.resume-button::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+
+  background: rgba(255, 62, 165, 0.9);
+  box-shadow:
+    0 0 8px rgba(255, 62, 165, 0.85),
+    0 0 14px rgba(255, 62, 165, 0.65);
 }
 
 .resume-button:hover {
-  border-color: rgba(255, 62, 165, 0.8);
-  color: var(--accent-magenta);
-
-  background: linear-gradient(
-    90deg,
-    rgba(53, 228, 255, 0.25),
-    rgba(255, 62, 165, 0.25)
-  );
+  color: var(--accent-cyan);
+  border-color: rgba(53, 228, 255, 0.9);
 
   box-shadow:
-    0 0 22px rgba(53, 228, 255, 0.85),
-    0 0 32px rgba(255, 62, 165, 0.85),
-    inset 0 0 18px rgba(53, 228, 255, 0.45),
-    inset 0 0 22px rgba(255, 62, 165, 0.45);
+    0 0 18px rgba(53, 228, 255, 0.9),
+    0 0 28px rgba(53, 228, 255, 0.7),
+    inset 0 0 18px rgba(53, 228, 255, 0.45);
 
   transform: translateY(-2px);
 }
