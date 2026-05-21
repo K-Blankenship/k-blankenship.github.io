@@ -289,7 +289,11 @@ html, body {
    PORTRAIT SYSTEM (Final Consolidated)
    ========================================= */
 
-/* Outer container that holds the portrait */
+/* =========================================
+   PORTRAIT SYSTEM (Final Restored Version)
+   ========================================= */
+
+/* Outer container */
 .portrait-panel {
   width: 100%;
   max-width: 260px;
@@ -319,11 +323,12 @@ html, body {
   overflow: hidden;
   background: #0b0f1a;
 
-  /* Stronger neon glow (matches your old screenshot) */
+  /* Dual-layer neon glow (restored) */
   border: 1px solid rgba(53, 228, 255, 0.45);
   box-shadow:
     0 0 14px rgba(53, 228, 255, 0.55),
     0 0 22px rgba(255, 62, 165, 0.55),
+    inset 0 0 14px rgba(53, 228, 255, 0.35),
     inset 0 0 18px rgba(255, 62, 165, 0.25);
 
   animation: portrait-flicker 3.8s infinite ease-in-out;
@@ -357,10 +362,23 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-
-  /* Match radius so glow doesn’t clip */
   border-radius: 12px;
   position: relative;
+}
+
+.portrait-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scanline-drift 6s linear infinite;
+  pointer-events: none;
 }
 
 /* The portrait image */
@@ -378,7 +396,7 @@ html, body {
   }
 }
 
-/* Scanline drift animation (shared) */
+/* Scanline drift animation */
 @keyframes scanline-drift {
   0%   { transform: translateY(0); }
   100% { transform: translateY(6px); }
