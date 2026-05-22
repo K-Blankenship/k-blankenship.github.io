@@ -1062,5 +1062,5 @@ box-shadow:
 footer,
 footer * {
   color: rgba(160, 170, 185, 0.45) !important;
-  text-shadow: 0 0 6px rgba(53, 228, 255, 0.25); /* subtle cyan glow */
+  text-shadow: 0 0 8px rgba(53, 228, 255, 0.35);
 }
