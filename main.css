@@ -1071,3 +1071,27 @@ footer * {
   color: rgba(160, 170, 185, 0.45) !important;
   text-shadow: 0 0 8px rgba(53, 228, 255, 0.35);
 }
+/* =========================================
+   FORCE NAV BUTTON STYLE — OVERRIDE ALL
+   ========================================= */
+
+.nav-button,
+.nav-button:link,
+.nav-button:visited {
+  background: rgba(5, 6, 10, 0.35) !important;
+  border: 1px solid rgba(53, 228, 255, 0.85) !important;
+  color: #fff !important;
+
+  box-shadow:
+    0 0 8px rgba(53, 228, 255, 0.45),
+    0 0 12px rgba(53, 228, 255, 0.25) !important;
+}
+
+.nav-button:hover {
+  border-color: rgba(255, 62, 165, 0.85) !important;
+  color: var(--accent-cyan) !important;
+
+  box-shadow:
+    0 0 10px rgba(255, 62, 165, 0.55),
+    0 0 14px rgba(255, 62, 165, 0.35) !important;
+}
