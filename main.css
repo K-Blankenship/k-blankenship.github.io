@@ -129,7 +129,7 @@ body {
 
 /* Full-page layout wrapper */
 html, body {
-  height: 100%;
+  height: auto !important;
 }
 
 /* Page shell: wraps all page content */
@@ -138,7 +138,7 @@ html, body {
   z-index: 1;
   isolation: isolate;
 
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
 
@@ -151,6 +151,10 @@ html, body {
 .page-shell:not(.projects-page) {
   /* This ensures Projects can still apply its own layout if needed */
 }
+.page-shell {
+  min-height: auto !important;
+}
+
 /* =========================================
    NAVIGATION TABS (Chunky Segmented)
    ========================================= */
