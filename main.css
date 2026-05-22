@@ -1081,6 +1081,10 @@ body.about-page {
   background-size: cover;
 }
 
+body.about-page .laser-sweep {
+  display: none !important;
+}
+
 /* FOOTER — Muted Cyberpunk Text */
 footer,
 footer * {
