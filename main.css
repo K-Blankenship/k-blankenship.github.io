@@ -454,6 +454,12 @@ box-shadow:
   border-radius: 12px;
 }
 
+.portrait-panel .hud-panel {
+  height: auto !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .portrait-panel {
