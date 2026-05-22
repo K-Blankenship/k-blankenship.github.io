@@ -1061,6 +1061,6 @@ box-shadow:
 /* FOOTER — Muted Cyberpunk Text */
 footer,
 footer * {
-  color: rgba(180, 190, 200, 0.55) !important; /* soft muted gray-blue */
+  color: rgba(160, 170, 185, 0.45) !important;
   text-shadow: 0 0 6px rgba(53, 228, 255, 0.25); /* subtle cyan glow */
 }
