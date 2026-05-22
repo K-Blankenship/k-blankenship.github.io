@@ -467,6 +467,15 @@ box-shadow:
   }
 }
 
+.front-layout,
+.centered-layout {
+  align-items: flex-start !important;
+}
+.front-layout .portrait-panel,
+.centered-layout .portrait-panel {
+  align-self: flex-start !important;
+}
+
 /* Scanline drift animation */
 @keyframes scanline-drift {
   0%   { transform: translateY(0); }
