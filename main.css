@@ -427,11 +427,9 @@ box-shadow:
 /* Outer container */
 .portrait-panel {
   width: 100%;
-  max-width: 230px; /* reduced from 260px */
+  max-width: 230px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block; /* ⭐ FIXED */
 }
 
 /* Subtle neon flicker */
@@ -450,13 +448,13 @@ box-shadow:
 
 .portrait-img {
   width: 100%;
-  height: 100%;        /* ⭐ THIS FIXES THE BOTTOM GAP */
+  height: auto;        /* ⭐ FIXED */
   object-fit: cover;
-  display: block;      /* ⭐ THIS REMOVES INLINE SPACING */
-  border-radius: 12px; /* ⭐ MATCHES THE HUD PANEL CORNERS */
+  display: block;
+  border-radius: 12px;
 }
 
-/* Responsive: shrink slightly on mobile */
+/* Responsive */
 @media (max-width: 768px) {
   .portrait-panel {
     max-width: 220px;
@@ -1065,6 +1063,14 @@ box-shadow:
 
   animation: portrait-flicker 4.2s infinite ease-in-out;
 }
+.portrait-frame img {
+  width: 100%;
+  height: auto;          /* ⭐ prevents stretching */
+  object-fit: cover;     /* keeps the image natural */
+  border-radius: 12px;   /* matches your HUD panel */
+  display: block;
+}
+
 /* =========================================
    ABOUT PAGE — LASER BACKGROUND
    ========================================= */
