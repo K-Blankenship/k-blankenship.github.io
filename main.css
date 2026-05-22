@@ -1058,3 +1058,9 @@ box-shadow:
 
   animation: portrait-flicker 4.2s infinite ease-in-out;
 }
+/* FOOTER — Muted Cyberpunk Text */
+footer,
+footer * {
+  color: rgba(180, 190, 200, 0.55) !important; /* soft muted gray-blue */
+  text-shadow: 0 0 6px rgba(53, 228, 255, 0.25); /* subtle cyan glow */
+}
