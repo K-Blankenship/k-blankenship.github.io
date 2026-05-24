@@ -966,11 +966,11 @@ html, body {
    ========================================= */
 
 .particle-field {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 0;
 }
 
 /* Cyan particle layer */
