@@ -730,19 +730,15 @@ box-shadow:
 }
 
 /* Projects header */
-.projects-header {
-  text-align: center;
-  margin-bottom: 2.2rem;
-}
-
-.projects-header h2 {
+.projects-title {
   font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
-  font-size: 2.4rem;                 /* ⭐ slightly larger for presence */
-  letter-spacing: 0.24em;            /* ⭐ subtle spacing boost */
+  font-size: 2.4rem;                 
+  letter-spacing: 0.24em;            
   text-transform: uppercase;
   color: var(--accent-cyan);
-  text-shadow: 0 0 14px var(--accent-cyan);  /* ⭐ stronger glow */
-  margin-bottom: 0.75rem;            /* ⭐ more breathing room */
+  text-shadow: 0 0 14px var(--accent-cyan);
+  margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 .projects-header p {
