@@ -736,7 +736,7 @@ box-shadow:
   letter-spacing: 0.24em;            
   text-transform: uppercase;
   color: var(--accent-cyan);
-  text-shadow: 0 0 09px var(--accent-cyan);
+  text-shadow: 0 0 07px var(--accent-cyan);
   margin-bottom: 0.75rem;
   text-align: center;
 }
