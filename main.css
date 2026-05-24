@@ -737,12 +737,12 @@ box-shadow:
 
 .projects-header h2 {
   font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
-  font-size: 1.4rem;
+  font-size: 2.2rem;                 /* bigger, like About Me */
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent-cyan);
-  text-shadow: 0 0 10px rgba(53, 228, 255, 0.55);
-  margin-bottom: 0.5rem;
+  text-shadow: 0 0 12px var(--accent-cyan);
+  margin-bottom: 0.6rem;
 }
 
 .projects-header p {
