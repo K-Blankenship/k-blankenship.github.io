@@ -155,7 +155,6 @@ html, body {
 .page-shell {
   position: relative;
   z-index: 1;
-  isolation: isolate;
 
   min-height: auto;
   display: flex;
@@ -998,6 +997,19 @@ html, body {
   background: rgba(180, 0, 255, 0.9);
   box-shadow: 0 0 12px rgba(180, 0, 255, 0.9);
 }
+
+/* Randomized starting positions */
+.particle:nth-child(1) { top: 90%; left: 10%; animation-duration: 22s; }
+.particle:nth-child(2) { top: 80%; left: 40%; animation-duration: 18s; }
+.particle:nth-child(3) { top: 95%; left: 70%; animation-duration: 26s; }
+
+.particle:nth-child(4) { top: 85%; left: 20%; animation-duration: 24s; }
+.particle:nth-child(5) { top: 75%; left: 55%; animation-duration: 20s; }
+.particle:nth-child(6) { top: 88%; left: 80%; animation-duration: 28s; }
+
+.particle:nth-child(7) { top: 92%; left: 30%; animation-duration: 30s; }
+.particle:nth-child(8) { top: 78%; left: 60%; animation-duration: 25s; }
+.particle:nth-child(9) { top: 96%; left: 85%; animation-duration: 32s; }
 
 /* Floating motion */
 @keyframes floatUp {
