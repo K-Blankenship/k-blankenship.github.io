@@ -493,7 +493,7 @@ html, body {
 
   border: 2px solid rgba(53, 228, 255, 0.4);
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(6px);
 
   /* ⭐ Base glow for ALL pages */
@@ -878,7 +878,7 @@ html, body {
 
   box-shadow:
     0 0 12px rgba(53, 228, 255, 0.25),
-    inset 0 0 12px rgba(255, 62, 165, 0.18);
+    inset 0 0 6px rgba(255, 62, 165, 0.12);
 
   max-width: 600px;
   margin: 0 auto;
@@ -1016,7 +1016,7 @@ html, body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  opacity: 0.85;
+  opacity: 1;
   animation: floatUp 18s linear infinite;
 }
 
