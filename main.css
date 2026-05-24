@@ -752,9 +752,8 @@ html, body {
   margin: 0 auto;
 }
 
-/* Individual project card */
 .project-card {
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.18); /* more transparent */
   border: 1px solid var(--border-strong);
   border-radius: 10px;
   padding: 1.4rem 1.6rem;
@@ -762,12 +761,18 @@ html, body {
   backdrop-filter: blur(6px);
 
   box-shadow:
-    0 0 12px rgba(155, 140, 255, 0.25), /* purple glow */
-    inset 0 0 12px rgba(255, 62, 165, 0.18);
+    0 0 12px rgba(155, 140, 255, 0.25),
+    inset 0 0 6px rgba(255, 62, 165, 0.12); /* softer inset */
 
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
 }
 
    .hud-panel:hover {
@@ -822,18 +827,18 @@ html, body {
 
   background: radial-gradient(
       circle at 30% 20%,
-      rgba(53, 228, 255, 0.25),
+      rgba(53, 228, 255, 0.35),
       transparent 60%
     ),
     radial-gradient(
       circle at 70% 80%,
-      rgba(255, 62, 165, 0.25),
+      rgba(255, 62, 165, 0.35),
       transparent 60%
     );
 
   filter: blur(18px);
-  opacity: 0.75;
-  z-index: -1; /* <-- move glow behind card content */
+  opacity: 0.85; /* stronger aurora */
+  z-index: -1;
 }
 
 .project-card > * {
