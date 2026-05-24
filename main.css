@@ -811,6 +811,10 @@ html, body {
     inset 0 0 34px rgba(53, 228, 255, 0.45);
 }
 
+.project-card {
+  box-shadow: 0 0 40px red !important;
+}
+
 /* =========================================
    CONTACT PAGE — SKYLINE + PANEL
    ========================================= */
