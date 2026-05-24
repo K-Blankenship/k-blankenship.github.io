@@ -746,10 +746,14 @@ box-shadow:
 }
 
 .projects-header p {
-  font-family: 'Exo 2', system-ui, sans-serif;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
+  font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-magenta);
+  text-shadow: 0 0 8px var(--accent-magenta);
+  opacity: 0.9;
+  margin-bottom: 2rem;
 }
 
 /* Projects grid */
