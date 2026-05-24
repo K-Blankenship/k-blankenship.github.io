@@ -1008,7 +1008,7 @@ box-shadow:
    ========================================= */
 
 /* Collapse front layout to 1 column */
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .front-layout {
     display: flex;
     flex-direction: column;
@@ -1025,6 +1025,12 @@ box-shadow:
 }
 
 /* Tablet + mobile adjustments */
+@media (max-width: 850px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* ⭐ one box per row on mobile */
+  }
+}
+
 @media (max-width: 768px) {
   /* Navigation tabs center */
   .nav-tabs-inner {
