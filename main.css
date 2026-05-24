@@ -732,11 +732,11 @@ box-shadow:
 /* Projects header */
 .projects-title {
   font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
-  font-size: 1.5rem;                 
+  font-size: 1.3rem;                 
   letter-spacing: 0.24em;            
   text-transform: uppercase;
   color: var(--accent-cyan);
-  text-shadow: 0 0 07px var(--accent-cyan);
+  text-shadow: 0 0 05px var(--accent-cyan);
   margin-bottom: 0.75rem;
   text-align: center;
 }
