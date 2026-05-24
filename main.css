@@ -973,40 +973,6 @@ html, body {
   z-index: 0;
 }
 
-/* Cyan particle layer */
-.particle-field::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: radial-gradient(
-    circle,
-    rgba(53, 228, 255, 0.45) 1px,
-    transparent 1px
-  );
-  background-size: 3px 3px;
-
-  opacity: 0.35;
-  animation: particle-drift-1 18s linear infinite;
-}
-
-/* Magenta / purple particle layer */
-.particle-field::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 62, 165, 0.45) 1px,
-    transparent 1px
-  );
-  background-size: 4px 4px;
-
-  opacity: 0.28;
-  animation: particle-drift-2 22s linear infinite;
-}
-
 /* Drift animations */
 @keyframes particle-drift-1 {
   0%   { transform: translateY(0); }
