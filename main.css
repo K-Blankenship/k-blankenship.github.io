@@ -514,7 +514,6 @@ box-shadow:
     inset 0 0 28px rgba(255, 62, 165, 0.45),
     inset 0 0 34px rgba(53, 228, 255, 0.45);
 
-  animation: portrait-flicker 4.2s infinite ease-in-out;
 }
 
 /* Neon gradient border overlay */
@@ -538,6 +537,8 @@ box-shadow:
           mask-composite: exclude;
 
   pointer-events: none;
+
+   animation: portrait-flicker 4.2s infinite ease-in-out;
 }
 
 /* HUD Header */
