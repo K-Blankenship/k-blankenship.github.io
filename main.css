@@ -786,6 +786,15 @@ box-shadow:
   color: var(--text-main);
   opacity: 0.9;
 }
+
+.project-card {
+  width: 100%;
+  min-height: 180px; /* ⭐ landscape height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 /* =========================================
    CONTACT PAGE — SKYLINE + PANEL
    ========================================= */
