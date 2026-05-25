@@ -1113,6 +1113,7 @@ box-shadow:
   font-size: 1.2rem;
   color: inherit;
 }
+}   
 
 /* FORCE portrait frame glow to override global styles */
 .portrait-frame {
