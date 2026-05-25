@@ -771,21 +771,33 @@ html, body {
   inset: 0;
   padding: 6px;
   border-radius: 14px;
-  z-index: 0; /* <-- THIS is the correct value */
+  z-index: 0;
 
   background: linear-gradient(135deg, cyan, magenta, purple);
 
+  /* Cross-browser safe hollow-frame mask */
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+
   pointer-events: none;
 
   box-shadow:
     0 0 18px rgba(0, 255, 255, 0.9),
     0 0 22px rgba(255, 0, 255, 0.9),
     0 0 26px rgba(180, 0, 255, 1);
+}
+
+/* ===== Fallback for browsers that don't support mask-composite ===== */
+@supports not (mask-composite: exclude) {
+  .project-card::before {
+    padding: 3px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-image: linear-gradient(135deg, cyan, magenta, purple) 1;
+  }
 }
 
 /* ===== HOVER — MAGENTA BLAST ===== */
