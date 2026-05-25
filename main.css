@@ -741,49 +741,73 @@ html, body {
   margin-bottom: 2.2rem;
 }
 
-/* Projects grid */
+/* ===== PROJECT GRID ===== */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ⭐ two landscape boxes per row */
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem; /* medium spacing */
+  margin-top: 2rem;
 }
 
-/* FINAL unified project card */
+/* ===== PROJECT CARD ===== */
 .project-card {
-  background: rgba(0, 0, 0, 0.18); /* more transparent */
-  border: 1px solid var(--border-strong);
-  border-radius: 10px;
-  padding: 1.4rem 1.6rem;
-
-  backdrop-filter: blur(6px);
-
-  width: 100%;
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
   position: relative;
+  padding: 1.2rem; /* moderately smaller */
+  background: rgba(0, 0, 0, 0.25); /* transparent black */
+  border-radius: 14px;
   overflow: hidden;
-  z-index: 0;
+  transform: translateZ(0);
 }
 
-/* keep content above glow */
-.project-card > * {
-  position: relative;
-  z-index: 1;
-}
+/* ===== NEON GRADIENT FRAME (6px) ===== */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 6px; /* frame thickness */
+  border-radius: 14px;
+  background: linear-gradient(135deg,
+    cyan,
+    magenta,
+    purple
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 
-.project-card {
+  /* INTENSE NEON GLOW */
   box-shadow:
-    0 0 22px rgba(53, 228, 255, 0.85),
-    0 0 38px rgba(255, 62, 165, 0.75),
-    0 0 55px rgba(53, 228, 255, 0.65),
-    inset 0 0 28px rgba(255, 62, 165, 0.45),
-    inset 0 0 34px rgba(53, 228, 255, 0.45);
+    0 0 18px rgba(0, 255, 255, 0.9),
+    0 0 22px rgba(255, 0, 255, 0.9),
+    0 0 26px rgba(180, 0, 255, 1);
+}
+
+/* ===== HOVER — MAGENTA BLAST ===== */
+.project-card:hover::before {
+  box-shadow:
+    0 0 28px rgba(255, 0, 255, 1),
+    0 0 36px rgba(255, 0, 255, 1),
+    0 0 48px rgba(255, 0, 255, 1);
+  transform: translateY(-3px);
+}
+
+/* ===== TEXT ===== */
+.project-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  color: #d38bff; /* purple neon */
+  margin-bottom: 0.4rem;
+}
+
+.project-desc {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.5;
 }
 
 /* =========================================
