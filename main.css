@@ -1167,7 +1167,4 @@ footer * {
     0 0 10px rgba(255, 62, 165, 0.55),
     0 0 14px rgba(255, 62, 165, 0.35) !important;
 }
-.project-card::before {
-  -webkit-mask: none !important;
-  mask: none !important;
-}
+
