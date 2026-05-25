@@ -784,10 +784,13 @@ html, body {
 
   pointer-events: none;
 
-  box-shadow:
-    0 0 18px rgba(0, 255, 255, 0.9),
-    0 0 22px rgba(255, 0, 255, 0.9),
-    0 0 26px rgba(180, 0, 255, 1);
+/* Base glow — purple only */
+box-shadow:
+  0 0 18px rgba(180, 0, 255, 0.6),
+  0 0 26px rgba(180, 0, 255, 0.8);
+  
+   /* ⭐ This is the missing piece */
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 /* ===== Fallback for browsers that don't support mask-composite ===== */
