@@ -938,89 +938,47 @@ html, body {
   color: var(--text-muted);
   text-transform: uppercase;
 }
-/* =========================================
-   PARTICLE FIELD (CYAN / MAGENTA / PURPLE)
-   ========================================= */
+/* ===== CYBERPUNK GALAXY PARTICLES ===== */
 
-.particle-field {
+.particle-layer {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   overflow: hidden;
-  z-index: 1;
+  z-index: -1;
 }
 
-/* Base particle */
 .particle {
   position: absolute;
-  width: 6px;
-  height: 6px;
   border-radius: 50%;
-  opacity: 1;
-  animation: floatUp 18s linear infinite;
+  opacity: 0.8;
+  animation: drift var(--speed) linear infinite,
+             twinkle var(--twinkle) ease-in-out infinite;
 }
 
-/* Colors */
-.particle.cyan {
-  background: rgba(53, 228, 255, 0.9);
-  box-shadow: 0 0 12px rgba(53, 228, 255, 0.9);
+/* Neon particle colors */
+.particle.cyan { background: rgba(0, 255, 255, 0.9); }
+.particle.magenta { background: rgba(255, 0, 255, 0.9); }
+.particle.purple { background: rgba(180, 0, 255, 0.9); }
+
+/* White stars */
+.particle.white { background: rgba(255, 255, 255, 1); }
+
+/* Random drift */
+@keyframes drift {
+  from { transform: translate(var(--xStart), var(--yStart)); }
+  to { transform: translate(var(--xEnd), var(--yEnd)); }
 }
 
-.particle.magenta {
-  background: rgba(255, 62, 165, 0.9);
-  box-shadow: 0 0 12px rgba(255, 62, 165, 0.9);
+/* Fast sparkly twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
 }
 
-.particle.purple {
-  background: rgba(180, 0, 255, 0.9);
-  box-shadow: 0 0 12px rgba(180, 0, 255, 0.9);
-}
-
-/* Randomized starting positions */
-.particle:nth-child(1) { top: 90%; left: 10%; animation-duration: 22s; }
-.particle:nth-child(2) { top: 80%; left: 40%; animation-duration: 18s; }
-.particle:nth-child(3) { top: 95%; left: 70%; animation-duration: 26s; }
-
-.particle:nth-child(4) { top: 85%; left: 20%; animation-duration: 24s; }
-.particle:nth-child(5) { top: 75%; left: 55%; animation-duration: 20s; }
-.particle:nth-child(6) { top: 88%; left: 80%; animation-duration: 28s; }
-
-.particle:nth-child(7) { top: 92%; left: 30%; animation-duration: 30s; }
-.particle:nth-child(8) { top: 78%; left: 60%; animation-duration: 25s; }
-.particle:nth-child(9) { top: 96%; left: 85%; animation-duration: 32s; }
-/* Second batch of particles */
-.particle:nth-of-type(10) { top: 82%; left: 15%; animation-duration: 27s; }
-.particle:nth-of-type(11) { top: 88%; left: 45%; animation-duration: 19s; }
-.particle:nth-of-type(12) { top: 93%; left: 75%; animation-duration: 33s; }
-
-.particle:nth-of-type(13) { top: 84%; left: 25%; animation-duration: 29s; }
-.particle:nth-of-type(14) { top: 77%; left: 50%; animation-duration: 21s; }
-.particle:nth-of-type(15) { top: 91%; left: 82%; animation-duration: 34s; }
-
-.particle:nth-of-type(16) { top: 89%; left: 35%; animation-duration: 31s; }
-.particle:nth-of-type(17) { top: 79%; left: 65%; animation-duration: 23s; }
-.particle:nth-of-type(18) { top: 97%; left: 90%; animation-duration: 36s; }
-
-/* Floating motion */
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) translateX(0);
-  }
-  100% {
-    transform: translateY(-200vh) translateX(20px);
-  }
-}
-
-/* Drift animations */
-@keyframes particle-drift-1 {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-160px); }
-}
-
-@keyframes particle-drift-2 {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-220px); }
-}
 /* =========================================
    RESPONSIVE RULES — MOBILE + TABLET
    ========================================= */
