@@ -752,33 +752,36 @@ html, body {
 /* ===== PROJECT CARD ===== */
 .project-card {
   position: relative;
-  padding: 1.2rem; /* moderately smaller */
-  background: rgba(0, 0, 0, 0.25); /* transparent black */
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 14px;
   overflow: hidden;
   transform: translateZ(0);
+  z-index: 1;
 }
 
+.project-card {
+  position: relative;
+  z-index: 1;
+}
 /* ===== NEON GRADIENT FRAME (6px) ===== */
 .project-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 6px; /* frame thickness */
+  padding: 6px;
   border-radius: 14px;
-  background: linear-gradient(135deg,
-    cyan,
-    magenta,
-    purple
-  );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
+  z-index: 0; /* <-- THIS is the correct value */
+
+  background: linear-gradient(135deg, cyan, magenta, purple);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 
-  /* INTENSE NEON GLOW */
   box-shadow:
     0 0 18px rgba(0, 255, 255, 0.9),
     0 0 22px rgba(255, 0, 255, 0.9),
@@ -788,9 +791,9 @@ html, body {
 /* ===== HOVER — MAGENTA BLAST ===== */
 .project-card:hover::before {
   box-shadow:
-    0 0 28px rgba(255, 0, 255, 1),
-    0 0 36px rgba(255, 0, 255, 1),
-    0 0 48px rgba(255, 0, 255, 1);
+    0 0 40px rgba(255, 0, 255, 1),
+    0 0 60px rgba(255, 0, 255, 1),
+    0 0 80px rgba(255, 0, 255, 1);
   transform: translateY(-3px);
 }
 
