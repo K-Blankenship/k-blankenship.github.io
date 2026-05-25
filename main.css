@@ -591,6 +591,11 @@ html, body {
   text-align: center;
 }
 
+/* FORCE override for Skills title */
+.skills-page .skills-header h2 {
+  color: var(--accent-cyan) !important;
+}
+
 /* ===== SKILLS PAGE SUBTITLE ===== */
 .skills-header p {
   font-family: 'Orbitron', 'Exo 2', system-ui, sans-serif;
