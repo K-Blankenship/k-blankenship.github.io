@@ -1188,3 +1188,6 @@ footer * {
 .portrait-img {
   animation: portrait-flicker 3s infinite !important;
 }
+   .test-portrait {
+  opacity: 0.4 !important;
+}
