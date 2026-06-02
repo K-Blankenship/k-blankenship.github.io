@@ -445,6 +445,7 @@ html, body {
   object-fit: cover;
   display: block;
   border-radius: 12px;
+  opacity: 0.95;
 }
 
 .portrait-panel .hud-panel {
